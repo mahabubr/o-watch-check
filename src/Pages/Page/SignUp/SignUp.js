@@ -1,10 +1,80 @@
-import React from 'react';
+import React, { useContext, useRef } from 'react';
 import { Link } from 'react-router-dom';
-import { BsGoogle, BsGithub } from 'react-icons/bs';
-import { FaFacebook } from 'react-icons/fa';
+import { BsGoogle, } from 'react-icons/bs';
+import { FaFacebook, FaYahoo } from 'react-icons/fa';
 import { Helmet } from 'react-helmet';
+import { AuthContext } from '../../../Contexts/AuthProvider/AuthProvider';
+import Swal from 'sweetalert2';
+import toast from 'react-hot-toast';
 
 const SignUp = () => {
+
+    const {
+        googleSignIn,
+        yahooSignIn,
+        facebookSignIn
+    }
+        = useContext(AuthContext)
+
+    const handleSignUp = (event) => {
+        event.preventDefault()
+
+        const form = event.target
+
+        const fullName = form.target.value
+        const email = form.email.value
+        const password = form.password.value
+        const image = form.image.files[0]
+
+        const formData = new FormData()
+        formData.append('image', image)
+
+        console.log(formData);
+
+    }
+
+    const singInWithGoogle = () => {
+        googleSignIn()
+            .then(result => {
+                Swal.fire(
+                    'Sign Up',
+                    'Account Created Successfully',
+                    'success'
+                )
+            })
+            .catch(e => {
+                toast.error(e.message.slice(16, -1))
+            })
+    }
+
+    const handleYahooSignIn = () => {
+        yahooSignIn()
+            .then(result => {
+                Swal.fire(
+                    'Sign Up',
+                    'Account Created Successfully',
+                    'success'
+                )
+            })
+            .catch(e => {
+                toast.error(e.message.slice(16, -1))
+            })
+    }
+
+    const handleFacebookSignIn = () => {
+        facebookSignIn()
+            .then(result => {
+                Swal.fire(
+                    'Sign Up',
+                    'Account Created Successfully',
+                    'success'
+                )
+            })
+            .catch(e => {
+                toast.error(e.message.slice(16, -1))
+            })
+    }
+
     return (
         <div>
             <Helmet>
@@ -16,7 +86,7 @@ const SignUp = () => {
                     <Link to='/login' rel="noopener noreferrer" className="focus:underline hover:underline text-blue-600"> Log In Here</Link>
                 </p>
                 <div className='block lg:flex justify-between items-center mt-8'>
-                    <form noValidate="" action="" className="space-y-8 ng-untouched ng-pristine ng-valid lg:w-6/12">
+                    <form onSubmit={handleSignUp} noValidate="" action="" className="space-y-8 ng-untouched ng-pristine ng-valid lg:w-6/12">
                         <div className="space-y-4">
                             <div className="space-y-2">
                                 <label htmlFor="name" className="block text-sm">Full Name</label>
@@ -24,7 +94,7 @@ const SignUp = () => {
                             </div>
                             <div className="space-y-2">
                                 <label htmlFor="photo" className="block text-sm">Photo URL</label>
-                                <input id='photo' type="file" className="file-input file-input-bordered file-input-success w-full " />
+                                <input id='photo' name='image' type="file" className="file-input file-input-bordered file-input-success w-full " />
                             </div>
                             <div className="space-y-2">
                                 <label htmlFor="email" className="block text-sm">Email Address</label>
@@ -46,15 +116,15 @@ const SignUp = () => {
                         <hr className="w-full text-gray-400" />
                     </div>
                     <div className="my-6 lg:w-4/12 space-y-4">
-                        <button aria-label="Login with Google" type="button" className="flex items-center justify-center w-full p-4 space-x-4 border rounded-md focus:ring-2 focus:ring-offset-1 text-white bg-violet-400 focus:ring-violet-400 transform skew-y-12">
+                        <button onClick={singInWithGoogle} aria-label="Login with Google" type="button" className="flex items-center justify-center w-full p-4 space-x-4 border rounded-md focus:ring-2 focus:ring-offset-1 text-white bg-violet-400 focus:ring-violet-400 transform skew-y-12">
                             <BsGoogle />
                             <p>Login with Google</p>
                         </button>
-                        <button aria-label="Login with GitHub" className="flex items-center justify-center w-full p-4 space-x-4 border rounded-md focus:ring-2 focus:ring-offset-1 text-white transform skew-y-12 bg-violet-400 focus:ring-violet-400">
-                            <BsGithub />
-                            <p>Login with GitHub</p>
+                        <button onClick={handleYahooSignIn} aria-label="Login with GitHub" className="flex items-center justify-center w-full p-4 space-x-4 border rounded-md focus:ring-2 focus:ring-offset-1 text-white transform skew-y-12 bg-violet-400 focus:ring-violet-400">
+                            <FaYahoo />
+                            <p>Login with Yahoo</p>
                         </button>
-                        <button aria-label="Login with Twitter" className="flex items-center justify-center w-full p-4 space-x-4 border rounded-md focus:ring-2 focus:ring-offset-1 text-white transform skew-y-12 bg-violet-400 focus:ring-violet-400">
+                        <button onClick={handleFacebookSignIn} aria-label="Login with Twitter" className="flex items-center justify-center w-full p-4 space-x-4 border rounded-md focus:ring-2 focus:ring-offset-1 text-white transform skew-y-12 bg-violet-400 focus:ring-violet-400">
                             <FaFacebook />
                             <p>Login with Facebook</p>
                         </button>

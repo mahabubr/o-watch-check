@@ -1,8 +1,27 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import toast from 'react-hot-toast';
 import { Link, NavLink } from 'react-router-dom';
+import Swal from 'sweetalert2';
 import logo from '../../../Assets/clock.png'
+import { AuthContext } from '../../../Contexts/AuthProvider/AuthProvider';
 
 const Navbar = () => {
+
+    const { logOut } = useContext(AuthContext)
+
+    const handleSignOut = () => {
+        logOut()
+            .then(() => {
+                Swal.fire(
+                    'Sign Out',
+                    'Come Back Soon',
+                    'success'
+                )
+            })
+            .catch(e => {
+                toast.error(e.message)
+            })
+    }
 
     const menuBar = <React.Fragment>
         <NavLink to='/' className={({ isActive }) => isActive
@@ -47,6 +66,7 @@ const Navbar = () => {
                 <Link to='/signup'>
                     <button className="btn btn-accent ml-2 btn-outline">Sign Up</button>
                 </Link>
+                <button onClickCapture={handleSignOut} className="btn btn-secondary ml-2 btn-outline">Log Out</button>
             </div>
         </nav>
     );
