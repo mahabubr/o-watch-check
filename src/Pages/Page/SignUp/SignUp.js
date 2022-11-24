@@ -1,5 +1,5 @@
-import React, { useContext, useRef } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useContext, useRef, useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import { BsGoogle, } from 'react-icons/bs';
 import { FaFacebook, FaYahoo } from 'react-icons/fa';
 import { Helmet } from 'react-helmet';
@@ -12,30 +12,77 @@ const SignUp = () => {
     const {
         googleSignIn,
         yahooSignIn,
-        facebookSignIn
+        facebookSignIn,
+        createUser,
+        updateUserNameAndPhoto,
     }
         = useContext(AuthContext)
+
+
+    const navigate = useNavigate()
+
+    const sendImageBB = (imagedata, email, password, fullName) => {
+        fetch(`https://api.imgbb.com/1/upload?key=${process.env.REACT_APP_IMAGE_BB_KEY}`, {
+            method: "POST",
+            body: imagedata
+        })
+            .then(res => res.json())
+            .then(imageData => {
+                if (imageData.success) {
+
+                    // Create User With Firebase
+                    createUser(email, password)
+                        .then(result => {
+                            // Update User Name And Photo
+                            updateUserNameAndPhoto(fullName, imageData.data.url)
+                                .then(() => {
+                                    toast.success('Your Name And Photo Update')
+                                    navigate('/')
+                                })
+                                .catch(e => {
+                                    toast.error(e.message.slice(16, -1))
+                                })
+
+                            Swal.fire(
+                                'Sign Up',
+                                'Account Created Successfully',
+                                'success'
+                            )
+                        })
+                        .catch(e => {
+                            toast.error(e.message.slice(16, -1))
+                        })
+                    // Create User With Firebase --end
+
+                }
+            })
+            .catch(e => {
+                toast.error(e.message)
+            })
+    }
 
     const handleSignUp = (event) => {
         event.preventDefault()
 
         const form = event.target
 
-        const fullName = form.target.value
+        const fullName = form.name.value
         const email = form.email.value
         const password = form.password.value
         const image = form.image.files[0]
 
+        // Sent Image To Image BB
         const formData = new FormData()
         formData.append('image', image)
+        sendImageBB(formData, email, password, fullName)
 
-        console.log(formData);
 
     }
 
     const singInWithGoogle = () => {
         googleSignIn()
             .then(result => {
+                navigate('/')
                 Swal.fire(
                     'Sign Up',
                     'Account Created Successfully',
@@ -50,6 +97,7 @@ const SignUp = () => {
     const handleYahooSignIn = () => {
         yahooSignIn()
             .then(result => {
+                navigate('/')
                 Swal.fire(
                     'Sign Up',
                     'Account Created Successfully',
@@ -64,6 +112,7 @@ const SignUp = () => {
     const handleFacebookSignIn = () => {
         facebookSignIn()
             .then(result => {
+                navigate('/')
                 Swal.fire(
                     'Sign Up',
                     'Account Created Successfully',
