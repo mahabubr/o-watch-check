@@ -5,6 +5,11 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import AuthProvider from './Contexts/AuthProvider/AuthProvider';
 
+// Swiper CSS
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/navigation";
+
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));

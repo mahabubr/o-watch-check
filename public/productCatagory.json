@@ -1,0 +1,17 @@
+[
+  {
+    "name": "Analog Watch",
+    "image": "https://i.ibb.co/XWQqf7q/analog-Watch.png",
+    "description": "An analog watch is one in which the display is not digital, but is indicated (typically) by the continuous motion of one, two, or three rotating pointers or hands pointing to numbers arrayed on a circular dial"
+  },
+  {
+    "name": "Digital Watch",
+    "image": "https://i.ibb.co/my5jVpk/digital-Watch.png",
+    "description": "A watch is a portable timepiece intended to be carried or worn by a person. It is designed to keep a consistent movement despite the motions caused by the person's activities."
+  },
+  {
+    "name": "Smart Watch",
+    "image": "https://i.ibb.co/gr8RPfz/smart-Watch.png",
+    "description": "A smartwatch is a wearable computing device that closely resembles a wristwatch or other time-keeping device. In addition to telling time, many smartwatches are Bluetooth-capable. The watch becomes a wireless Bluetooth adaptor capable of extending the capabilities of the wearer's smartphone to the watch."
+  }
+]

@@ -35,7 +35,7 @@ const Navbar = () => {
     </React.Fragment>
 
     return (
-        <nav className="navbar border-b-2 border-gray-300 md:w-11/12 md:mx-auto">
+        <nav className="navbar md:w-11/12 md:mx-auto">
             <div className="navbar-start">
                 <div className="dropdown">
                     <label tabIndex={0} className="btn btn-ghost lg:hidden">
