@@ -7,7 +7,7 @@ import { AuthContext } from '../../../Contexts/AuthProvider/AuthProvider';
 
 const Navbar = () => {
 
-    const { logOut } = useContext(AuthContext)
+    const { logOut, user } = useContext(AuthContext)
 
     const handleSignOut = () => {
         logOut()
@@ -59,7 +59,7 @@ const Navbar = () => {
                     {menuBar}
                 </ul>
             </div>
-            <div className="navbar-end">
+            <div className="navbar-end hidden md:flex">
                 <Link to='/login'>
                     <button className="btn btn-accent mr-2">Login</button>
                 </Link>
@@ -67,6 +67,13 @@ const Navbar = () => {
                     <button className="btn btn-accent ml-2 btn-outline">Sign Up</button>
                 </Link>
                 <button onClickCapture={handleSignOut} className="btn btn-secondary ml-2 btn-outline">Log Out</button>
+                <Link to='/my-profile' data-tip={user?.displayName} className="tooltip tooltip-bottom">
+                    <div className="avatar">
+                        <div className="w-16 ml-4 mask mask-hexagon">
+                            <img src={user?.photoURL} alt='' />
+                        </div>
+                    </div>
+                </Link>
             </div>
         </nav>
     );
