@@ -1,0 +1,80 @@
+[
+  {
+    "category_id": "637f6e38b2c7870c08c21400",
+    "category_name": "Analog Watch",
+    "product_pic": "https://m.media-amazon.com/images/I/61KD2RqXcXL._AC_UL320_.jpg",
+    "product_name": "Analog Wrist Watch with Date for Men",
+    "product_location": "Dhaka, Bangladesh",
+    "product_resale_price": "150",
+    "product_original_price": "250",
+    "product_years_use": "02 year",
+    "product_post_time": "25 November, 2022",
+    "product_seller_name": "Tony Stark",
+    "seller-verified": true
+  },
+  {
+    "category_id": "637f6e38b2c7870c08c21400",
+    "category_name": "Analog Watch",
+    "product_pic": "https://m.media-amazon.com/images/I/71GtycnHMtL._AC_UL320_.jpg",
+    "product_name": "Day & Date Display Analog Wrist Watch for Men",
+    "product_location": "Rajshahi, Bangladesh",
+    "product_resale_price": "100",
+    "product_original_price": "180",
+    "product_years_use": "01 year",
+    "product_post_time": "22 November, 2022",
+    "product_seller_name": "Tom Cruse",
+    "seller-verified": false
+  },
+  {
+    "category_id": "637f6e38b2c7870c08c21401",
+    "category_name": "Digital Watch",
+    "product_pic": "https://m.media-amazon.com/images/I/61eac98fJRL._AC_UL320_.jpg",
+    "product_name": "Men's Digital Sports Watch 50m Waterproof",
+    "product_location": "Rajshahi, Bangladesh",
+    "product_resale_price": "280",
+    "product_original_price": "400",
+    "product_years_use": "03 year",
+    "product_post_time": "06 July, 2022",
+    "product_seller_name": "Tom Cruse",
+    "seller-verified": true
+  },
+  {
+    "category_id": "637f6e38b2c7870c08c21401",
+    "category_name": "Digital Watch",
+    "product_pic": "https://m.media-amazon.com/images/I/61C3dyVDeVL._AC_UL320_.jpg",
+    "product_name": "Reflex 3.0 Unisex Activity Tracker - Full Touch",
+    "product_location": "Dhaka, Bangladesh",
+    "product_resale_price": "140",
+    "product_original_price": "600",
+    "product_years_use": "06 month",
+    "product_post_time": "16 may, 2022",
+    "product_seller_name": "Tony Stark",
+    "seller-verified": true
+  },
+  {
+    "category_id": "637f6e38b2c7870c08c21402",
+    "category_name": "Smart Watch",
+    "product_pic": "https://m.media-amazon.com/images/I/61IMRs+o0iL._AC_UY218_.jpg",
+    "product_name": "boAt Xtend Smartwatch with Alexa Built-in, 1.69” HD Display",
+    "product_location": "Chottogram, Bangladesh",
+    "product_resale_price": "400",
+    "product_original_price": "500",
+    "product_years_use": "08 month",
+    "product_post_time": "16 may, 2022",
+    "product_seller_name": "Tony Stark",
+    "seller-verified": false
+  },
+  {
+    "category_id": "637f6e38b2c7870c08c21402",
+    "category_name": "Smart Watch",
+    "product_pic": "https://m.media-amazon.com/images/I/61IMRs+o0iL._AC_UY218_.jpg",
+    "product_name": "boAt Wave Call Smart Watch, Smart Talk with Advanced Calling Chip",
+    "product_location": "Bogra, Bangladesh",
+    "product_resale_price": "800",
+    "product_original_price": "1200",
+    "product_years_use": "02 month",
+    "product_post_time": "11 January, 2022",
+    "product_seller_name": "Mahabubur Rahman",
+    "seller-verified": true
+  }
+]
