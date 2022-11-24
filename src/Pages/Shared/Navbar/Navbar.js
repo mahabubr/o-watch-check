@@ -60,20 +60,31 @@ const Navbar = () => {
                 </ul>
             </div>
             <div className="navbar-end hidden md:flex">
-                <Link to='/login'>
-                    <button className="btn btn-accent mr-2">Login</button>
-                </Link>
-                <Link to='/signup'>
-                    <button className="btn btn-accent ml-2 btn-outline">Sign Up</button>
-                </Link>
-                <button onClickCapture={handleSignOut} className="btn btn-secondary ml-2 btn-outline">Log Out</button>
-                <Link to='/my-profile' data-tip={user?.displayName} className="tooltip tooltip-bottom">
-                    <div className="avatar">
-                        <div className="w-16 ml-4 mask mask-hexagon">
-                            <img src={user?.photoURL} alt='' />
-                        </div>
-                    </div>
-                </Link>
+
+                {
+                    user
+                        ?
+                        <>
+                            <Link to='/my-profile' data-tip={user?.displayName} className="tooltip tooltip-bottom">
+                                <div className="avatar">
+                                    <div className="w-16 ml-4 mask mask-hexagon">
+                                        <img src={user?.photoURL} alt='' />
+                                    </div>
+                                </div>
+                            </Link>
+                            <button onClickCapture={handleSignOut} className="btn btn-secondary ml-2 btn-outline">Log Out</button>
+                        </>
+                        :
+                        <>
+                            <Link to='/login'>
+                                <button className="btn btn-accent mr-2">Login</button>
+                            </Link>
+                            <Link to='/signup'>
+                                <button className="btn btn-accent ml-2 btn-outline">Sign Up</button>
+                            </Link>
+
+                        </>
+                }
             </div>
         </nav>
     );
