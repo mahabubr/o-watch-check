@@ -3,7 +3,7 @@ import { Helmet } from 'react-helmet';
 import toast from 'react-hot-toast';
 import { BsGoogle } from 'react-icons/bs';
 import { FaFacebook, FaYahoo } from 'react-icons/fa';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import { AuthContext } from '../../../Contexts/AuthProvider/AuthProvider';
 
@@ -18,6 +18,8 @@ const Login = () => {
         = useContext(AuthContext)
 
     const navigate = useNavigate()
+    const location = useLocation()
+    const from = location.state?.from?.pathname || '/'
 
     const handleLogin = (event) => {
         event.preventDefault()
@@ -29,7 +31,7 @@ const Login = () => {
 
         loginUser(email, password)
             .then(result => {
-                navigate('/')
+                navigate(from, { replace: true })
                 Swal.fire(
                     'Sign In',
                     'Account Login Successfully',
@@ -46,7 +48,7 @@ const Login = () => {
     const singInWithGoogle = () => {
         googleSignIn()
             .then(result => {
-                navigate('/')
+                navigate(from, { replace: true })
                 Swal.fire(
                     'Sign Up',
                     'Account Created Successfully',
@@ -61,7 +63,7 @@ const Login = () => {
     const handleYahooSignIn = () => {
         yahooSignIn()
             .then(result => {
-                navigate('/')
+                navigate(from, { replace: true })
                 Swal.fire(
                     'Sign Up',
                     'Account Created Successfully',
@@ -76,7 +78,7 @@ const Login = () => {
     const handleFacebookSignIn = () => {
         facebookSignIn()
             .then(result => {
-                navigate('/')
+                navigate(from, { replace: true })
                 Swal.fire(
                     'Sign Up',
                     'Account Created Successfully',

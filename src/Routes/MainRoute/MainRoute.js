@@ -6,6 +6,7 @@ import HomeComponents from "../../Pages/Page/Home/HomeComponents/HomeComponents"
 import WatchItems from "../../Pages/Page/Home/ProductCategories/WatchItems/WatchItems";
 import Login from "../../Pages/Page/Login/Login";
 import SignUp from "../../Pages/Page/SignUp/SignUp";
+import PrivateRoute from "../PrivateRoute/PrivateRoute";
 
 const router = createBrowserRouter([
     {
@@ -27,11 +28,17 @@ const router = createBrowserRouter([
             },
             {
                 path: '/my-profile',
-                element: <MyProfile />
+                element:
+                    <PrivateRoute>
+                        <MyProfile />
+                    </PrivateRoute>
             },
             {
                 path: '/watch-category/:id',
-                element: <WatchItems />,
+                element:
+                    <PrivateRoute>
+                        <WatchItems />
+                    </PrivateRoute>,
                 loader: async ({ params }) => fetch(`http://localhost:5000/watch-category/${params.id}`)
             }
         ]
