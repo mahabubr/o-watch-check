@@ -18,7 +18,7 @@ const ProductCategories = () => {
             });
 
     }, [])
-    
+
     return (
         <div className='w-10/12 mx-auto my-20'>
             <h1 className='text-3xl font-bold text-center border-dashed drop-shadow-md shadow-indigo-300 shadow-md text-indigo-600 border-b-2 border-indigo-500'>Watch Catagories</h1>

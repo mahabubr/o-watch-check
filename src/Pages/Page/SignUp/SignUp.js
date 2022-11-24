@@ -156,8 +156,11 @@ const SignUp = () => {
                                 </div>
                                 <input required type="password" name="password" id="password" placeholder="*****" className="w-full px-3 py-4 border rounded-md border-gray-700 text-gray-900 bg-gray-100 focus:border-violet-400" />
                             </div>
+                            <div className="space-y-2">
+                                hello
+                            </div>
                         </div>
-                        <input className="w-full uppercase px-8 py-3 font-bold btn-primary  cursor-pointer" type="submit" value="Sign Up" />
+                        <input className="inline-block w-full py-4 bg-indigo-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-indigo-700 hover:shadow-lg focus:bg-indigo-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-indigo-800 active:shadow-lg transition duration-150 ease-in-out cursor-pointer" type="submit" value="Sign Up" />
                     </form>
                     <div className="flex items-center w-2/12 rotate-90 my-4">
                         <hr className="w-full text-gray-400" />

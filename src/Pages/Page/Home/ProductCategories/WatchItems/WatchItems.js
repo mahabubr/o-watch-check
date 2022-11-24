@@ -1,12 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useLoaderData } from 'react-router-dom';
 import { BiSearchAlt } from 'react-icons/bi';
 import WatchSingleItem from './WatchSingleItem/WatchSingleItem';
+import BookNowModal from '../../BookNowModal/BookNowModal'
 
 
 const WatchItems = () => {
 
     const watchItem = useLoaderData()
+
+    const [singleWatch, setSingleWatch] = useState(null)
 
     return (
         <div className='my-20 w-10/12 mx-auto'>
@@ -18,7 +21,13 @@ const WatchItems = () => {
                 </div>
             </div>
             <div className='mt-10 grid grid-cols-1 lg:grid-cols-2 gap-10'>
-                {watchItem.map(item => <WatchSingleItem key={item._id} item={item} />)}
+                {watchItem.map(item => <WatchSingleItem key={item._id} item={item} setSingleWatch={setSingleWatch} />)}
+            </div>
+            <div>
+                {
+                    singleWatch &&
+                    <BookNowModal singleWatch={singleWatch} setSingleWatch={setSingleWatch}></BookNowModal>
+                }
             </div>
         </div>
     );

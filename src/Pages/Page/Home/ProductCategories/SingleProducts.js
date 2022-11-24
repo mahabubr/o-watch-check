@@ -17,7 +17,7 @@ const SingleProducts = ({ watch }) => {
                         {description.slice(0, 150)}...
                     </p>
                     <Link to={`/watch-category/${_id}`}>
-                        <button type="button" className=" inline-block w-full py-4 bg-indigo-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-indigo-700 hover:shadow-lg focus:bg-indigo-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-indigo-800 active:shadow-lg transition duration-150 ease-in-out">See {name} Category</button>
+                        <button type="button" className="inline-block w-full py-4 bg-indigo-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-indigo-700 hover:shadow-lg focus:bg-indigo-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-indigo-800 active:shadow-lg transition duration-150 ease-in-out">See {name} Category</button>
                     </Link>
                 </div>
                 <div className="py-3 px-6 border-t border-gray-300 text-gray-600">

@@ -5,19 +5,30 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import AuthProvider from './Contexts/AuthProvider/AuthProvider';
 
+// Query Client
+import {
+  QueryClient,
+  QueryClientProvider,
+} from '@tanstack/react-query'
+
 // Swiper CSS
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 
 
+const queryClient = new QueryClient()
+
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <AuthProvider>
-      <App />
-    </AuthProvider>
+    <QueryClientProvider client={queryClient}>
+      <AuthProvider>
+        <App />
+      </AuthProvider>
+    </QueryClientProvider>
   </React.StrictMode>
 );
 
