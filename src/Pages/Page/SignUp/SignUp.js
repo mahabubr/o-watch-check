@@ -61,6 +61,11 @@ const SignUp = () => {
             })
     }
 
+    const handleRadioChange = (event) => {
+        const value = event.target.value
+        console.log(value);
+    }
+
     const handleSignUp = (event) => {
         event.preventDefault()
 
@@ -156,8 +161,18 @@ const SignUp = () => {
                                 </div>
                                 <input required type="password" name="password" id="password" placeholder="*****" className="w-full px-3 py-4 border rounded-md border-gray-700 text-gray-900 bg-gray-100 focus:border-violet-400" />
                             </div>
-                            <div className="space-y-2">
-                                hello
+                            <div className="space-y-2 flex justify-evenly items-center">
+
+                                <div className='flex justify-start items-center'>
+                                    <input onClick={handleRadioChange} id='buyer' type="radio" value='buyer' name="radio" defaultChecked className="radio radio-accent mr-2" />
+                                    <label htmlFor="buyer">buyer</label>
+                                </div>
+
+                                <div className='flex justify-start items-center'>
+                                    <input onClick={handleRadioChange} id='seller' type="radio" value='seller' name="radio" className="radio radio-accent mr-2" />
+                                    <label htmlFor="seller">Seller</label>
+                                </div>
+
                             </div>
                         </div>
                         <input className="inline-block w-full py-4 bg-indigo-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-indigo-700 hover:shadow-lg focus:bg-indigo-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-indigo-800 active:shadow-lg transition duration-150 ease-in-out cursor-pointer" type="submit" value="Sign Up" />
