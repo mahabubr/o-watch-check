@@ -12,7 +12,7 @@ const DashboardLayout = () => {
 
 
     const { data: userData, isLoading } = useQuery({
-        queryKey: ['user'],
+        queryKey: ['user', user.email],
         queryFn: () => fetch(`http://localhost:5000/user/?email=${user.email}`)
             .then(res => res.json())
     })
@@ -34,12 +34,14 @@ const DashboardLayout = () => {
                 </div>
                 <div className="drawer-side">
                     <label htmlFor="dashboard-drawer" className="drawer-overlay"></label>
-                    <ul className="menu p-8 w-80 bg-teal-500 text-base-content">
+                    <ul className="menu  w-80 bg-teal-500 text-base-content">
                         {/* <!-- Sidebar content here --> */}
-                        <Link to='/dashboard' className='text-xl mb-4 border-b-2 border-black text-center font-bold'>
+
+                        <Link to='/dashboard' className='text-xl mb-4 border-b-2 border-black text-center font-bold m-8 mr-20'>
                             <li>O Watch - Dashboard</li>
                         </Link>
-                        <div className="flex items-center p-4 space-x-4 bg-teal-100 mb-6 rounded-lg shadow-xl">
+
+                        <div className="flex w-10/12 ml-6 items-center m-4 p-4 space-x-4 bg-teal-100 mb-6 rounded-lg shadow-xl">
                             <img src={user?.photoURL} alt="" className="w-12 h-12 rounded-full bg-gray-500" />
                             <div>
                                 <h2 className="text-xl font-semibold">{user?.displayName}</h2>
@@ -55,9 +57,9 @@ const DashboardLayout = () => {
                             <NavLink to='/dashboard/my-orders'
                                 className={({ isActive }) => isActive
                                     ?
-                                    'px-6 py-3 flex items-center uppercase font-bold leading-snug mr-6 bg-teal-700 border-b-2 rounded-xl text-white'
+                                    'px-6 py-3 flex items-center uppercase font-bold leading-snug mr-6 bg-white w-full text-teal-700 rounded-l-lg ml-6'
                                     :
-                                    'px-3 py-2 flex items-center border-b-2 border-teal-700 text-lg uppercase font-bold leading-snug mr-6'
+                                    'px-3 py-2 flex items-center border-b-2 border-teal-700 text-lg uppercase font-bold leading-snug ml-4'
                                 }
                             >
                                 <li>My Orders</li>
@@ -66,16 +68,28 @@ const DashboardLayout = () => {
 
                         {
                             userData.role === "seller" &&
-                            <NavLink to='/dashboard/add-products'
-                                className={({ isActive }) => isActive
-                                    ?
-                                    'px-6 py-3 flex items-center uppercase font-bold leading-snug mr-6 bg-teal-700 border-b-2 rounded-xl text-white'
-                                    :
-                                    'px-3 py-2 flex items-center border-b-2 border-teal-700 text-lg uppercase font-bold leading-snug mr-6'
-                                }
-                            >
+                            <div className='space-y-3'>
+                                <NavLink to='/dashboard/add-products'
+                                    className={({ isActive }) => isActive
+                                        ?
+                                        'px-6 py-3 flex items-center uppercase font-bold leading-snug mr-6 bg-white w-full text-teal-700 rounded-l-lg ml-6'
+                                        :
+                                        'px-3 py-2 flex items-center border-b-2 border-teal-700 text-lg uppercase font-bold leading-snug ml-4'
+                                    }
+                                >
                                     <li>Add products</li>
-                            </NavLink>
+                                </NavLink>
+                                <NavLink to='/dashboard/my-products'
+                                    className={({ isActive }) => isActive
+                                        ?
+                                        'px-6 py-3 flex items-center uppercase font-bold leading-snug mr-6 bg-white w-full text-teal-700 rounded-l-lg ml-6'
+                                        :
+                                        'px-3 py-2 flex items-center border-b-2 border-teal-700 text-lg uppercase font-bold leading-snug ml-4'
+                                    }
+                                >
+                                    <li>My Products</li>
+                                </NavLink>
+                            </div>
                         }
 
 

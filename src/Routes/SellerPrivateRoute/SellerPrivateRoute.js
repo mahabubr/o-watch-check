@@ -4,8 +4,7 @@ import { Navigate } from 'react-router-dom';
 import Loader from '../../Components/Loader/Loader';
 import { AuthContext } from '../../Contexts/AuthProvider/AuthProvider';
 
-const UserPrivateRoute = ({ children }) => {
-
+const SellerPrivateRoute = ({ children }) => {
     const { user } = useContext(AuthContext)
 
 
@@ -19,12 +18,11 @@ const UserPrivateRoute = ({ children }) => {
         return <Loader />
     }
 
-    if (userData.role === "buyer") {
+    if (userData.role === "seller") {
         return children
     }
 
     return <Navigate to='/dashboard' />
-
 };
 
-export default UserPrivateRoute;
+export default SellerPrivateRoute;

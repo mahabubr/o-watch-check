@@ -12,6 +12,7 @@ import WatchItems from "../../Pages/Page/Home/ProductCategories/WatchItems/Watch
 import Login from "../../Pages/Page/Login/Login";
 import SignUp from "../../Pages/Page/SignUp/SignUp";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
+import SellerPrivateRoute from "../SellerPrivateRoute/SellerPrivateRoute";
 import UserPrivateRoute from "../UserPrivateRoute/UserPrivateRoute";
 
 const router = createBrowserRouter([
@@ -82,7 +83,10 @@ const router = createBrowserRouter([
             },
             {
                 path: '/dashboard/add-products',
-                element: <AddProducts />
+                element:
+                    <SellerPrivateRoute>
+                        <AddProducts />
+                    </SellerPrivateRoute>
             }
         ]
     }
