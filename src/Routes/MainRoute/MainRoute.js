@@ -3,6 +3,7 @@ import DashboardLayout from "../../Layout/DashboardLayout/DashboardLayout";
 import MainLayout from "../../Layout/MainLayout/MainLayout";
 import MyProfile from "../../Pages/Other/MyProfile/MyProfile";
 import NotFound from "../../Pages/Other/NotFound/NotFound";
+import AddProducts from "../../Pages/Page/Dashboard/AddProducts/AddProducts";
 import Dashboard from "../../Pages/Page/Dashboard/Dashboard";
 import MyOrders from "../../Pages/Page/Dashboard/MyOrders/MyOrders";
 import Payment from "../../Pages/Page/Dashboard/MyOrders/Payment/Payment";
@@ -11,6 +12,7 @@ import WatchItems from "../../Pages/Page/Home/ProductCategories/WatchItems/Watch
 import Login from "../../Pages/Page/Login/Login";
 import SignUp from "../../Pages/Page/SignUp/SignUp";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
+import UserPrivateRoute from "../UserPrivateRoute/UserPrivateRoute";
 
 const router = createBrowserRouter([
     {
@@ -65,17 +67,22 @@ const router = createBrowserRouter([
             {
                 path: '/dashboard/my-orders',
                 element:
-                    <PrivateRoute>
+                    <UserPrivateRoute>
                         <MyOrders />
-                    </PrivateRoute>
+                    </UserPrivateRoute>
+
             },
             {
                 path: '/dashboard/payment/:id',
                 loader: async ({ params }) => fetch(`http://localhost:5000/my-orders/${params.id}`),
                 element:
-                    <PrivateRoute>
+                    <UserPrivateRoute>
                         <Payment />
-                    </PrivateRoute>
+                    </UserPrivateRoute>
+            },
+            {
+                path: '/dashboard/add-products',
+                element: <AddProducts />
             }
         ]
     }

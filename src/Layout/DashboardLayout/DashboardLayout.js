@@ -1,5 +1,7 @@
+import { useQuery } from '@tanstack/react-query';
 import React, { useContext } from 'react';
 import { Link, NavLink, Outlet } from 'react-router-dom';
+import Loader from '../../Components/Loader/Loader';
 import { AuthContext } from '../../Contexts/AuthProvider/AuthProvider';
 import Navbar from '../../Pages/Shared/Navbar/Navbar';
 
@@ -7,6 +9,17 @@ import Navbar from '../../Pages/Shared/Navbar/Navbar';
 const DashboardLayout = () => {
 
     const { user } = useContext(AuthContext)
+
+
+    const { data: userData, isLoading } = useQuery({
+        queryKey: ['user'],
+        queryFn: () => fetch(`http://localhost:5000/user/?email=${user.email}`)
+            .then(res => res.json())
+    })
+
+    if (isLoading) {
+        return <Loader />
+    }
 
     return (
         <div>
@@ -30,23 +43,42 @@ const DashboardLayout = () => {
                             <img src={user?.photoURL} alt="" className="w-12 h-12 rounded-full bg-gray-500" />
                             <div>
                                 <h2 className="text-xl font-semibold">{user?.displayName}</h2>
-                                <p className='text-base text-green-600 font-bold'>Buyer</p>
+                                <p className='text-base text-green-600 font-bold'>{userData.role}</p>
                                 <span className="flex items-center space-x-1">
                                     <Link to="/my-profile" className="text-xs hover:underline text-blue-600">View profile</Link>
                                 </span>
                             </div>
                         </div>
 
-                        <NavLink to='/dashboard/my-orders'
-                            className={({ isActive }) => isActive
-                                ?
-                                'px-6 py-3 flex items-center uppercase font-bold leading-snug mr-6 bg-teal-700 border-b-2 rounded-xl text-white'
-                                :
-                                'px-3 py-2 flex items-center border-b-2 border-teal-700 text-lg uppercase font-bold leading-snug mr-6'
-                            }
-                        >
-                            <li>My Orders</li>
-                        </NavLink>
+                        {
+                            userData.role === "buyer" &&
+                            <NavLink to='/dashboard/my-orders'
+                                className={({ isActive }) => isActive
+                                    ?
+                                    'px-6 py-3 flex items-center uppercase font-bold leading-snug mr-6 bg-teal-700 border-b-2 rounded-xl text-white'
+                                    :
+                                    'px-3 py-2 flex items-center border-b-2 border-teal-700 text-lg uppercase font-bold leading-snug mr-6'
+                                }
+                            >
+                                <li>My Orders</li>
+                            </NavLink>
+                        }
+
+                        {
+                            userData.role === "seller" &&
+                            <NavLink to='/dashboard/add-products'
+                                className={({ isActive }) => isActive
+                                    ?
+                                    'px-6 py-3 flex items-center uppercase font-bold leading-snug mr-6 bg-teal-700 border-b-2 rounded-xl text-white'
+                                    :
+                                    'px-3 py-2 flex items-center border-b-2 border-teal-700 text-lg uppercase font-bold leading-snug mr-6'
+                                }
+                            >
+                                    <li>Add products</li>
+                            </NavLink>
+                        }
+
+
 
                     </ul>
                 </div>
