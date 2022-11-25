@@ -21,6 +21,8 @@ const SignUp = () => {
 
     const navigate = useNavigate()
 
+    const [handleRadio, setHandleRadio] = useState('buyer')
+
     const sendImageBB = (imagedata, email, password, fullName) => {
         fetch(`https://api.imgbb.com/1/upload?key=${process.env.REACT_APP_IMAGE_BB_KEY}`, {
             method: "POST",
@@ -48,6 +50,35 @@ const SignUp = () => {
                                 'Account Created Successfully',
                                 'success'
                             )
+
+                            // Sent User Into Mongodb
+
+                            const userSignUpInfo = {
+                                fullName,
+                                email,
+                                role: handleRadio,
+                                isAdmin: false
+                            }
+
+                            fetch('http://localhost:5000/user', {
+                                method: "POST",
+                                headers: {
+                                    "content-type": "application/json"
+                                },
+                                body: JSON.stringify(userSignUpInfo)
+                            })
+                                .then(res => res.json())
+                                .then(data => {
+                                    if (data.acknowledged) {
+                                        toast.success("User Info Successfully Save")
+                                    }
+                                })
+                                .catch(e => {
+                                    toast.error(e.message)
+                                })
+
+
+
                         })
                         .catch(e => {
                             toast.error(e.message.slice(16, -1))
@@ -63,8 +94,9 @@ const SignUp = () => {
 
     const handleRadioChange = (event) => {
         const value = event.target.value
-        console.log(value);
+        setHandleRadio(value);
     }
+
 
     const handleSignUp = (event) => {
         event.preventDefault()
@@ -87,6 +119,34 @@ const SignUp = () => {
     const singInWithGoogle = () => {
         googleSignIn()
             .then(result => {
+                const user = result.user
+
+                // Sent User Into Mongodb
+
+                const userSignUpInfo = {
+                    fullName: user.displayName,
+                    email: user.email,
+                    role: 'buyer',
+                    isAdmin: false
+                }
+
+                fetch('http://localhost:5000/user', {
+                    method: "POST",
+                    headers: {
+                        "content-type": "application/json"
+                    },
+                    body: JSON.stringify(userSignUpInfo)
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        if (data.acknowledged) {
+                            toast.success("User Info Successfully Save")
+                        }
+                    })
+                    .catch(e => {
+                        toast.error(e.message)
+                    })
+
                 navigate('/')
                 Swal.fire(
                     'Sign Up',
