@@ -17,7 +17,7 @@ const AllSellers = () => {
     }
 
     const handleSellerDelete = (sellerInfo) => {
-        const confirm = window.confirm('Are Your Sure To Delete Buyers')
+        const confirm = window.confirm('Are Your Sure To Delete Seller')
 
         if (confirm) {
             fetch(`http://localhost:5000/all-users/${sellerInfo._id}`, {

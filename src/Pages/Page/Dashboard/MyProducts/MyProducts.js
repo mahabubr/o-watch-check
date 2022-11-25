@@ -1,5 +1,6 @@
 import { useQuery } from '@tanstack/react-query';
 import React, { useContext } from 'react';
+import toast from 'react-hot-toast';
 import Swal from 'sweetalert2';
 import Loader from '../../../../Components/Loader/Loader';
 import { AuthContext } from '../../../../Contexts/AuthProvider/AuthProvider';
@@ -8,7 +9,7 @@ const MyProducts = () => {
 
     const { user } = useContext(AuthContext)
 
-    const { data: sellerProducts, isLoading } = useQuery({
+    const { data: sellerProducts, isLoading, refetch } = useQuery({
         queryKey: ['watch', 'seller-product', user?.email],
         queryFn: () => fetch(`http://localhost:5000/watch/seller-product/?email=${user?.email}`)
             .then(res => res.json())
@@ -54,6 +55,29 @@ const MyProducts = () => {
         }
     }
 
+    const handleMyProductDelete = (productInfo) => {
+        const confirm = window.confirm('Are You Sure To Delete Product')
+        console.log(productInfo);
+        if (confirm) {
+            fetch(`http://localhost:5000/watch/${productInfo._id}`, {
+                method: "DELETE"
+            })
+                .then(res => res.json())
+                .then(data => {
+                    if (data.acknowledged) {
+                        refetch()
+                        toast.success('Product Deleted From Website')
+                        Swal.fire(
+                            'Congratulations',
+                            'Your Product Deleted Successfully',
+                            'success'
+                        )
+                    }
+                })
+                .catch(e => toast.error(e.message))
+        }
+    }
+
 
     return (
         <div>
@@ -83,7 +107,7 @@ const MyProducts = () => {
                                         <td>{product.product_post_time}</td>
                                         <td>
                                             <button onClick={() => handleAdvertiseProduct(product)} className='btn btn-sm btn-secondary block mb-2'>Boost</button>
-                                            <button className='btn btn-sm btn-warning block'>Delete</button>
+                                            <button onClick={() => handleMyProductDelete(product)} className='btn btn-sm btn-warning block'>Delete</button>
                                         </td>
                                     </tr>
                                 )
