@@ -1,7 +1,10 @@
 import { createBrowserRouter } from "react-router-dom";
+import DashboardLayout from "../../Layout/DashboardLayout/DashboardLayout";
 import MainLayout from "../../Layout/MainLayout/MainLayout";
 import MyProfile from "../../Pages/Other/MyProfile/MyProfile";
 import NotFound from "../../Pages/Other/NotFound/NotFound";
+import Dashboard from "../../Pages/Page/Dashboard/Dashboard";
+import MyOrders from "../../Pages/Page/Dashboard/MyOrders/MyOrders";
 import HomeComponents from "../../Pages/Page/Home/HomeComponents/HomeComponents";
 import WatchItems from "../../Pages/Page/Home/ProductCategories/WatchItems/WatchItems";
 import Login from "../../Pages/Page/Login/Login";
@@ -40,6 +43,30 @@ const router = createBrowserRouter([
                         <WatchItems />
                     </PrivateRoute>,
                 loader: async ({ params }) => fetch(`http://localhost:5000/watch-category/${params.id}`)
+            }
+        ]
+    },
+    {
+        path: '/dashboard',
+        element:
+            <PrivateRoute>
+                <DashboardLayout />,
+            </PrivateRoute>,
+        errorElement: <NotFound />,
+        children: [
+            {
+                path: '/dashboard',
+                element:
+                    <PrivateRoute>
+                        <Dashboard />
+                    </PrivateRoute>
+            },
+            {
+                path: '/dashboard/my-orders',
+                element:
+                    <PrivateRoute>
+                        <MyOrders />
+                    </PrivateRoute>
             }
         ]
     }
