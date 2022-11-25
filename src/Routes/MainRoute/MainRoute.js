@@ -4,6 +4,8 @@ import MainLayout from "../../Layout/MainLayout/MainLayout";
 import MyProfile from "../../Pages/Other/MyProfile/MyProfile";
 import NotFound from "../../Pages/Other/NotFound/NotFound";
 import AddProducts from "../../Pages/Page/Dashboard/AddProducts/AddProducts";
+import AllBuyers from "../../Pages/Page/Dashboard/AllBuyers/AllBuyers";
+import AllSellers from "../../Pages/Page/Dashboard/AllSellers/AllSellers";
 import Dashboard from "../../Pages/Page/Dashboard/Dashboard";
 import MyOrders from "../../Pages/Page/Dashboard/MyOrders/MyOrders";
 import Payment from "../../Pages/Page/Dashboard/MyOrders/Payment/Payment";
@@ -12,6 +14,7 @@ import HomeComponents from "../../Pages/Page/Home/HomeComponents/HomeComponents"
 import WatchItems from "../../Pages/Page/Home/ProductCategories/WatchItems/WatchItems";
 import Login from "../../Pages/Page/Login/Login";
 import SignUp from "../../Pages/Page/SignUp/SignUp";
+import AdminRoute from "../AdminRoute/AdminRoute";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
 import SellerPrivateRoute from "../SellerPrivateRoute/SellerPrivateRoute";
 import UserPrivateRoute from "../UserPrivateRoute/UserPrivateRoute";
@@ -95,6 +98,20 @@ const router = createBrowserRouter([
                     <SellerPrivateRoute>
                         <MyProducts />
                     </SellerPrivateRoute>
+            },
+            {
+                path: '/dashboard/all-sellers',
+                element:
+                    <AdminRoute>
+                        <AllSellers />
+                    </AdminRoute>
+            },
+            {
+                path: '/dashboard/all-buyers',
+                element:
+                    <AdminRoute>
+                        <AllBuyers />
+                    </AdminRoute>
             }
         ]
     }
