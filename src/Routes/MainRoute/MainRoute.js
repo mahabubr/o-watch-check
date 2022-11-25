@@ -1,6 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
 import DashboardLayout from "../../Layout/DashboardLayout/DashboardLayout";
 import MainLayout from "../../Layout/MainLayout/MainLayout";
+import Blog from "../../Pages/Other/Blog/Blog";
 import MyProfile from "../../Pages/Other/MyProfile/MyProfile";
 import NotFound from "../../Pages/Other/NotFound/NotFound";
 import AddProducts from "../../Pages/Page/Dashboard/AddProducts/AddProducts";
@@ -43,6 +44,10 @@ const router = createBrowserRouter([
                     <PrivateRoute>
                         <MyProfile />
                     </PrivateRoute>
+            },
+            {
+                path: '/blog',
+                element: <Blog />
             },
             {
                 path: '/watch-category/:id',
