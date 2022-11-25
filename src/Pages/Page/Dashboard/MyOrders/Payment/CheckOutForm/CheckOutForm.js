@@ -8,8 +8,6 @@ const CheckOutForm = ({ myBookingPaymentInfo }) => {
 
     const { booking_price, booking_user_email, booking_title, _id, booking_item_id } = myBookingPaymentInfo
 
-    console.log(booking_item_id);
-
     const [clientSecret, setClientSecret] = useState("");
 
     const stripe = useStripe()
@@ -95,12 +93,23 @@ const CheckOutForm = ({ myBookingPaymentInfo }) => {
                 .then(res => res.json())
                 .then(data => {
                     if (data.insertedId) {
-                        Swal.fire(
-                            'Congratulations',
-                            `Your Payment Successfully Complete - ${paymentIntent.id}`,
-                            'success'
-                        )
-                        navigate('/dashboard/my-orders')
+
+                        fetch(`http://localhost:5000/watch/${booking_item_id}`, {
+                            method: "DELETE"
+                        })
+                            .then(res => res.json())
+                            .then(data => {
+                                if (data.acknowledged) {
+                                    toast.success('Product Deleted From Website')
+                                    Swal.fire(
+                                        'Congratulations',
+                                        `Your Payment Successfully Complete - ${paymentIntent.id}`,
+                                        'success'
+                                    )
+                                    navigate('/dashboard/my-orders')
+                                }
+                            })
+                            .catch(e => toast.error(e.message))
                     }
                 })
         }

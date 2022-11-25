@@ -6,6 +6,8 @@ const WatchSingleItem = ({ item, setSingleWatch }) => {
 
     const { product_pic, product_name, product_location, product_resale_price, product_original_price, product_years_use, product_post_time, product_seller_name, seller_verified } = item
 
+    console.log(item);
+
 
     return (
         <div className="flex justify-center">
