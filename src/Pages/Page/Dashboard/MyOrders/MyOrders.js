@@ -1,6 +1,7 @@
 import { useQuery } from '@tanstack/react-query';
 import React, { useContext } from 'react';
 import toast from 'react-hot-toast';
+import { Link } from 'react-router-dom';
 import Loader from '../../../../Components/Loader/Loader';
 import { AuthContext } from '../../../../Contexts/AuthProvider/AuthProvider';
 
@@ -53,7 +54,14 @@ const MyOrders = () => {
                                 </td>
                                 <td>$ {order.booking_price}</td>
                                 <th>
-                                    <button className="btn btn-primary btn-sm">Pay Now</button>
+                                    {
+                                        order.paid ?
+                                            <button className="btn btn-secondary cursor-not-allowed btn-sm" >Purchased</button>
+                                            :
+                                            <Link to={`/dashboard/payment/${order._id}`}>
+                                                <button className="btn btn-primary btn-sm">Pay Now</button>
+                                            </Link>
+                                    }
                                 </th>
                             </tr>
                         )

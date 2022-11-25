@@ -5,6 +5,7 @@ import MyProfile from "../../Pages/Other/MyProfile/MyProfile";
 import NotFound from "../../Pages/Other/NotFound/NotFound";
 import Dashboard from "../../Pages/Page/Dashboard/Dashboard";
 import MyOrders from "../../Pages/Page/Dashboard/MyOrders/MyOrders";
+import Payment from "../../Pages/Page/Dashboard/MyOrders/Payment/Payment";
 import HomeComponents from "../../Pages/Page/Home/HomeComponents/HomeComponents";
 import WatchItems from "../../Pages/Page/Home/ProductCategories/WatchItems/WatchItems";
 import Login from "../../Pages/Page/Login/Login";
@@ -66,6 +67,14 @@ const router = createBrowserRouter([
                 element:
                     <PrivateRoute>
                         <MyOrders />
+                    </PrivateRoute>
+            },
+            {
+                path: '/dashboard/payment/:id',
+                loader: async ({ params }) => fetch(`http://localhost:5000/my-orders/${params.id}`),
+                element:
+                    <PrivateRoute>
+                        <Payment />
                     </PrivateRoute>
             }
         ]
