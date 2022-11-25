@@ -7,6 +7,7 @@ import AddProducts from "../../Pages/Page/Dashboard/AddProducts/AddProducts";
 import Dashboard from "../../Pages/Page/Dashboard/Dashboard";
 import MyOrders from "../../Pages/Page/Dashboard/MyOrders/MyOrders";
 import Payment from "../../Pages/Page/Dashboard/MyOrders/Payment/Payment";
+import MyProducts from "../../Pages/Page/Dashboard/MyProducts/MyProducts";
 import HomeComponents from "../../Pages/Page/Home/HomeComponents/HomeComponents";
 import WatchItems from "../../Pages/Page/Home/ProductCategories/WatchItems/WatchItems";
 import Login from "../../Pages/Page/Login/Login";
@@ -86,6 +87,13 @@ const router = createBrowserRouter([
                 element:
                     <SellerPrivateRoute>
                         <AddProducts />
+                    </SellerPrivateRoute>
+            },
+            {
+                path: '/dashboard/my-products',
+                element:
+                    <SellerPrivateRoute>
+                        <MyProducts />
                     </SellerPrivateRoute>
             }
         ]

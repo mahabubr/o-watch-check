@@ -92,6 +92,42 @@ const DashboardLayout = () => {
                             </div>
                         }
 
+                        {
+                            userData.role === "admin" &&
+                            <div className='space-y-3'>
+                                <NavLink to='/dashboard/all-sellers'
+                                    className={({ isActive }) => isActive
+                                        ?
+                                        'px-6 py-3 flex items-center uppercase font-bold leading-snug mr-6 bg-white w-full text-teal-700 rounded-l-lg ml-6'
+                                        :
+                                        'px-3 py-2 flex items-center border-b-2 border-teal-700 text-lg uppercase font-bold leading-snug ml-4'
+                                    }
+                                >
+                                    <li>All Sellers</li>
+                                </NavLink>
+                                <NavLink to='/dashboard/all-buyers'
+                                    className={({ isActive }) => isActive
+                                        ?
+                                        'px-6 py-3 flex items-center uppercase font-bold leading-snug mr-6 bg-white w-full text-teal-700 rounded-l-lg ml-6'
+                                        :
+                                        'px-3 py-2 flex items-center border-b-2 border-teal-700 text-lg uppercase font-bold leading-snug ml-4'
+                                    }
+                                >
+                                    <li>All Buyers</li>
+                                </NavLink>
+                                <NavLink to='/dashboard/reported-items'
+                                    className={({ isActive }) => isActive
+                                        ?
+                                        'px-6 py-3 flex items-center uppercase font-bold leading-snug mr-6 bg-white w-full text-teal-700 rounded-l-lg ml-6'
+                                        :
+                                        'px-3 py-2 flex items-center border-b-2 border-teal-700 text-lg uppercase font-bold leading-snug ml-4'
+                                    }
+                                >
+                                    <li>Reported Items</li>
+                                </NavLink>
+                            </div>
+                        }
+
 
 
                     </ul>

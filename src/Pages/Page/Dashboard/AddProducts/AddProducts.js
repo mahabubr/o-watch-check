@@ -29,6 +29,7 @@ const AddProducts = () => {
         const product_condition_type = form.productCondition.value
         const seller_phone_number = form.mobileNumber.value
         const product_description = form.productDescription.value
+        const seller_email = user?.email
 
         if (category_name === "Analog Watch") {
             category_id = '637f6e38b2c7870c08c21400';
@@ -55,7 +56,8 @@ const AddProducts = () => {
             seller_verified,
             product_condition_type,
             seller_phone_number,
-            product_description
+            product_description,
+            seller_email
         }
 
         fetch('http://localhost:5000/watch', {
