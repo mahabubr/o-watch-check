@@ -10,7 +10,9 @@ const AllSellers = () => {
         queryKey: ['all-users', 'all-sellers'],
         queryFn: () => fetch('http://localhost:5000/all-users/all-sellers')
             .then(res => res.json())
-    })
+    }
+    )
+
 
     if (isLoading) {
         return <Loader />
@@ -40,8 +42,6 @@ const AllSellers = () => {
     }
 
     const handleVerifySeller = (seller) => {
-        console.log(seller.email);
-
 
         fetch(`http://localhost:5000/watch/verify-seller/?email=${seller.email}`, {
             method: "PATCH",
@@ -70,6 +70,7 @@ const AllSellers = () => {
 
 
     }
+
 
     return (
         <div>

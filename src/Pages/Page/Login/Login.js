@@ -31,6 +31,25 @@ const Login = () => {
 
         loginUser(email, password)
             .then(result => {
+
+                // GET JWT TOKEN
+
+                const currentUser = {
+                    email: result.user.email
+                }
+
+                fetch('http://localhost:5000/jwt', {
+                    method: 'POST',
+                    headers: {
+                        'content-type': 'application/json'
+                    },
+                    body: JSON.stringify(currentUser)
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        localStorage.setItem('access-token', data.token);
+                    });
+
                 navigate(from, { replace: true })
                 Swal.fire(
                     'Sign In',
@@ -48,6 +67,25 @@ const Login = () => {
     const singInWithGoogle = () => {
         googleSignIn()
             .then(result => {
+
+                // GET JWT TOKEN
+
+                const currentUser = {
+                    email: result.user.email
+                }
+
+                fetch('http://localhost:5000/jwt', {
+                    method: 'POST',
+                    headers: {
+                        'content-type': 'application/json'
+                    },
+                    body: JSON.stringify(currentUser)
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        localStorage.setItem('access-token', data.token);
+                    });
+
                 navigate(from, { replace: true })
                 Swal.fire(
                     'Sign Up',
@@ -63,6 +101,25 @@ const Login = () => {
     const handleYahooSignIn = () => {
         yahooSignIn()
             .then(result => {
+
+                // GET JWT TOKEN
+
+                const currentUser = {
+                    email: result.user.email
+                }
+
+                fetch('http://localhost:5000/jwt', {
+                    method: 'POST',
+                    headers: {
+                        'content-type': 'application/json'
+                    },
+                    body: JSON.stringify(currentUser)
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        localStorage.setItem('access-token', data.token);
+                    });
+
                 navigate(from, { replace: true })
                 Swal.fire(
                     'Sign Up',
@@ -78,6 +135,25 @@ const Login = () => {
     const handleFacebookSignIn = () => {
         facebookSignIn()
             .then(result => {
+
+                // GET JWT TOKEN
+
+                const currentUser = {
+                    email: result.user.email
+                }
+
+                fetch('http://localhost:5000/jwt', {
+                    method: 'POST',
+                    headers: {
+                        'content-type': 'application/json'
+                    },
+                    body: JSON.stringify(currentUser)
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        localStorage.setItem('access-token', data.token);
+                    });
+
                 navigate(from, { replace: true })
                 Swal.fire(
                     'Sign Up',

@@ -11,7 +11,11 @@ const MyOrders = () => {
 
     const { data: myOrdersList, isLoading } = useQuery({
         queryKey: ['my-orders', user?.email],
-        queryFn: () => fetch(`http://localhost:5000/my-orders/?email=${user?.email}`)
+        queryFn: () => fetch(`http://localhost:5000/my-orders/?email=${user?.email}`, {
+            headers: {
+                authorization: `Bearer ${localStorage.getItem('access-token')}`
+            }
+        })
             .then(res => res.json())
             .catch(e => toast.error(e.message))
     })

@@ -35,6 +35,26 @@ const SignUp = () => {
                     // Create User With Firebase
                     createUser(email, password)
                         .then(result => {
+
+
+                            // GET JWT TOKEN
+
+                            const currentUser = {
+                                email: result.user.email
+                            }
+
+                            fetch('http://localhost:5000/jwt', {
+                                method: 'POST',
+                                headers: {
+                                    'content-type': 'application/json'
+                                },
+                                body: JSON.stringify(currentUser)
+                            })
+                                .then(res => res.json())
+                                .then(data => {
+                                    localStorage.setItem('access-token', data.token);
+                                });
+
                             // Update User Name And Photo
                             updateUserNameAndPhoto(fullName, imageData.data.url)
                                 .then(() => {
@@ -122,6 +142,24 @@ const SignUp = () => {
             .then(result => {
                 const user = result.user
 
+                // GET JWT TOKEN
+
+                const currentUser = {
+                    email: result.user.email
+                }
+
+                fetch('http://localhost:5000/jwt', {
+                    method: 'POST',
+                    headers: {
+                        'content-type': 'application/json'
+                    },
+                    body: JSON.stringify(currentUser)
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        localStorage.setItem('access-token', data.token);
+                    });
+
                 // Sent User Into Mongodb
 
                 const userSignUpInfo = {
@@ -164,6 +202,24 @@ const SignUp = () => {
     const handleYahooSignIn = () => {
         yahooSignIn()
             .then(result => {
+
+                // GET JWT TOKEN
+
+                const currentUser = {
+                    email: result.user.email
+                }
+
+                fetch('http://localhost:5000/jwt', {
+                    method: 'POST',
+                    headers: {
+                        'content-type': 'application/json'
+                    },
+                    body: JSON.stringify(currentUser)
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        localStorage.setItem('access-token', data.token);
+                    });
 
                 const user = result.user
 
@@ -209,6 +265,24 @@ const SignUp = () => {
     const handleFacebookSignIn = () => {
         facebookSignIn()
             .then(result => {
+
+                // GET JWT TOKEN
+
+                const currentUser = {
+                    email: result.user.email
+                }
+
+                fetch('http://localhost:5000/jwt', {
+                    method: 'POST',
+                    headers: {
+                        'content-type': 'application/json'
+                    },
+                    body: JSON.stringify(currentUser)
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        localStorage.setItem('access-token', data.token);
+                    });
 
                 const user = result.user
 

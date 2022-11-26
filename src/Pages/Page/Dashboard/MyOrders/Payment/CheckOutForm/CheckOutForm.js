@@ -8,8 +8,6 @@ const CheckOutForm = ({ myBookingPaymentInfo }) => {
 
     const { booking_price, booking_user_email, booking_title, _id, booking_item_id } = myBookingPaymentInfo
 
-    console.log(myBookingPaymentInfo);
-
     const [clientSecret, setClientSecret] = useState("");
 
     const stripe = useStripe()
