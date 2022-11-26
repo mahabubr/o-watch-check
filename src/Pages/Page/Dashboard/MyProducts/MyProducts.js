@@ -56,6 +56,7 @@ const MyProducts = () => {
     }
 
     const handleMyProductDelete = (productInfo) => {
+
         const confirm = window.confirm('Are You Sure To Delete Product')
         if (confirm) {
             fetch(`http://localhost:5000/watch/${productInfo._id}`, {
@@ -71,6 +72,19 @@ const MyProducts = () => {
                             'Your Product Deleted Successfully',
                             'success'
                         )
+
+                        fetch(`http://localhost:5000/advertised/${productInfo._id}`, {
+                            method: "DELETE"
+                        })
+                            .then(res => res.json())
+                            .then(data => {
+                                if (data.acknowledged) {
+                                    toast.success('Advertized Product Deleted From Website')
+                                }
+                            })
+                            .catch(e => toast.error(e.message))
+
+
                     }
                 })
                 .catch(e => toast.error(e.message))

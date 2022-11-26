@@ -34,8 +34,41 @@ const AllSellers = () => {
                         )
                     }
                 })
+
                 .catch(e => toast.error(e.message))
         }
+    }
+
+    const handleVerifySeller = (seller) => {
+        console.log(seller.email);
+
+
+        fetch(`http://localhost:5000/watch/verify-seller/?email=${seller.email}`, {
+            method: "PATCH",
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify({ status: true })
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.matchedCount > 0) {
+                    Swal.fire(
+                        'Congratulations',
+                        'Your Have Successfully Verify Your Seller ',
+                        'success'
+                    )
+                    return
+                }
+                else {
+                    toast.loading("This User Not Added At Least One Product")
+                }
+
+            })
+            .catch(e => toast.error(e.message))
+
+
+
     }
 
     return (
@@ -51,6 +84,7 @@ const AllSellers = () => {
                                 <th>Email</th>
                                 <th>Role</th>
                                 <th></th>
+                                <th></th>
                             </tr>
                         </thead>
                         <tbody>
@@ -62,12 +96,10 @@ const AllSellers = () => {
                                         <td>{seller.email}</td>
                                         <td>{seller.role}</td>
                                         <td>
-                                            <td>
-                                                <button onClick={() => handleSellerDelete(seller)} className='btn btn-sm btn-secondary'>Delete</button>
-                                            </td>
-                                            <td>
-                                                <button className='btn btn-sm '>Verify</button>
-                                            </td>
+                                            <button onClick={() => handleSellerDelete(seller)} className='btn btn-sm btn-secondary'>Delete</button>
+                                        </td>
+                                        <td>
+                                            <button onClick={() => handleVerifySeller(seller)} className='btn btn-sm '>Verify</button>
                                         </td>
                                     </tr>
                                 )
