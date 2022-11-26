@@ -57,7 +57,8 @@ const SignUp = () => {
                                 fullName,
                                 email,
                                 role: handleRadio,
-                                isAdmin: false
+                                isAdmin: false,
+                                verify: false
                             }
 
                             fetch('http://localhost:5000/user', {
@@ -127,7 +128,8 @@ const SignUp = () => {
                     fullName: user.displayName,
                     email: user.email,
                     role: 'buyer',
-                    isAdmin: false
+                    isAdmin: false,
+                    verify: false
                 }
 
                 fetch('http://localhost:5000/user', {
@@ -162,6 +164,36 @@ const SignUp = () => {
     const handleYahooSignIn = () => {
         yahooSignIn()
             .then(result => {
+
+                const user = result.user
+
+                // Sent User Into Mongodb
+
+                const userSignUpInfo = {
+                    fullName: user.displayName,
+                    email: user.email,
+                    role: 'buyer',
+                    isAdmin: false,
+                    verify: false
+                }
+
+                fetch('http://localhost:5000/user', {
+                    method: "POST",
+                    headers: {
+                        "content-type": "application/json"
+                    },
+                    body: JSON.stringify(userSignUpInfo)
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        if (data.acknowledged) {
+                            toast.success("User Info Successfully Save")
+                        }
+                    })
+                    .catch(e => {
+                        toast.error(e.message)
+                    })
+
                 navigate('/')
                 Swal.fire(
                     'Sign Up',
@@ -177,6 +209,36 @@ const SignUp = () => {
     const handleFacebookSignIn = () => {
         facebookSignIn()
             .then(result => {
+
+                const user = result.user
+
+                // Sent User Into Mongodb
+
+                const userSignUpInfo = {
+                    fullName: user.displayName,
+                    email: user.email,
+                    role: 'buyer',
+                    isAdmin: false,
+                    verify: false
+                }
+
+                fetch('http://localhost:5000/user', {
+                    method: "POST",
+                    headers: {
+                        "content-type": "application/json"
+                    },
+                    body: JSON.stringify(userSignUpInfo)
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        if (data.acknowledged) {
+                            toast.success("User Info Successfully Save")
+                        }
+                    })
+                    .catch(e => {
+                        toast.error(e.message)
+                    })
+
                 navigate('/')
                 Swal.fire(
                     'Sign Up',

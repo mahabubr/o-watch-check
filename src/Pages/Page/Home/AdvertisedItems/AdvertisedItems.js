@@ -19,7 +19,7 @@ const AdvertisedItems = () => {
     return (
         <section className='my-28'>
             {
-                advertisedItem.length &&
+                advertisedItem.length > 0 &&
                 <>
                     <h1 className='text-3xl font-bold text-center border-dashed drop-shadow-md shadow-indigo-300 shadow-md text-indigo-600 border-b-2 border-indigo-500 mb-10 w-10/12 mx-auto'>Peoples's Choice</h1>
                     <Swiper

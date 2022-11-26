@@ -8,6 +8,8 @@ const CheckOutForm = ({ myBookingPaymentInfo }) => {
 
     const { booking_price, booking_user_email, booking_title, _id, booking_item_id } = myBookingPaymentInfo
 
+    console.log(myBookingPaymentInfo);
+
     const [clientSecret, setClientSecret] = useState("");
 
     const stripe = useStripe()
@@ -110,6 +112,19 @@ const CheckOutForm = ({ myBookingPaymentInfo }) => {
                                 }
                             })
                             .catch(e => toast.error(e.message))
+
+
+                        fetch(`http://localhost:5000/advertised/${booking_item_id}`, {
+                            method: "DELETE"
+                        })
+                            .then(res => res.json())
+                            .then(data => {
+                                if (data.acknowledged) {
+                                    toast.success('Advertized Product Deleted From Website')
+                                }
+                            })
+                            .catch(e => toast.error(e.message))
+
                     }
                 })
         }

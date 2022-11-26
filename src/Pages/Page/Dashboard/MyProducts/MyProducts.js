@@ -57,7 +57,6 @@ const MyProducts = () => {
 
     const handleMyProductDelete = (productInfo) => {
         const confirm = window.confirm('Are You Sure To Delete Product')
-        console.log(productInfo);
         if (confirm) {
             fetch(`http://localhost:5000/watch/${productInfo._id}`, {
                 method: "DELETE"
