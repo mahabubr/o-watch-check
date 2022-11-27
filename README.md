@@ -20,3 +20,9 @@
 - Express JS
 - Mongodb
 - Mamba UI
+
+## Admin Access
+
+### Email : admin@owatchcheck.com
+
+### Password: 123456
