@@ -11,6 +11,8 @@ import Dashboard from "../../Pages/Page/Dashboard/Dashboard";
 import MyOrders from "../../Pages/Page/Dashboard/MyOrders/MyOrders";
 import Payment from "../../Pages/Page/Dashboard/MyOrders/Payment/Payment";
 import MyProducts from "../../Pages/Page/Dashboard/MyProducts/MyProducts";
+import MyWishlist from "../../Pages/Page/Dashboard/MyWishlist/MyWishlist";
+import ReportedAdmin from "../../Pages/Page/Dashboard/ReportedAdmin/ReportedAdmin";
 import HomeComponents from "../../Pages/Page/Home/HomeComponents/HomeComponents";
 import WatchItems from "../../Pages/Page/Home/ProductCategories/WatchItems/WatchItems";
 import Login from "../../Pages/Page/Login/Login";
@@ -83,6 +85,14 @@ const router = createBrowserRouter([
 
             },
             {
+                path: '/dashboard/my-wishlist',
+                element:
+                    <UserPrivateRoute>
+                        <MyWishlist />
+                    </UserPrivateRoute>
+
+            },
+            {
                 path: '/dashboard/payment/:id',
                 loader: async ({ params }) => fetch(`http://localhost:5000/my-orders/${params.id}`, {
                     headers: {
@@ -120,6 +130,13 @@ const router = createBrowserRouter([
                 element:
                     <AdminRoute>
                         <AllBuyers />
+                    </AdminRoute>
+            },
+            {
+                path: '/dashboard/reported-items',
+                element:
+                    <AdminRoute>
+                        <ReportedAdmin />
                     </AdminRoute>
             }
         ]
