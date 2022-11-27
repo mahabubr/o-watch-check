@@ -11,7 +11,7 @@ const MyProducts = () => {
 
     const { data: sellerProducts, isLoading, refetch } = useQuery({
         queryKey: ['watch', 'seller-product', user?.email],
-        queryFn: () => fetch(`http://localhost:5000/watch/seller-product/?email=${user?.email}`)
+        queryFn: () => fetch(`https://owatch-check-server.vercel.app/watch/seller-product/?email=${user?.email}`)
             .then(res => res.json())
     })
 
@@ -35,7 +35,7 @@ const MyProducts = () => {
 
 
         if (confirm) {
-            fetch('http://localhost:5000/advertised', {
+            fetch('https://owatch-check-server.vercel.app/advertised', {
                 method: "POST",
                 headers: {
                     "content-type": "application/json"
@@ -59,7 +59,7 @@ const MyProducts = () => {
 
         const confirm = window.confirm('Are You Sure To Delete Product')
         if (confirm) {
-            fetch(`http://localhost:5000/watch/${productInfo._id}`, {
+            fetch(`https://owatch-check-server.vercel.app/watch/${productInfo._id}`, {
                 method: "DELETE"
             })
                 .then(res => res.json())
@@ -73,7 +73,7 @@ const MyProducts = () => {
                             'success'
                         )
 
-                        fetch(`http://localhost:5000/advertised/${productInfo._id}`, {
+                        fetch(`https://owatch-check-server.vercel.app/advertised/${productInfo._id}`, {
                             method: "DELETE"
                         })
                             .then(res => res.json())

@@ -8,7 +8,7 @@ const ReportedAdmin = () => {
 
     const { data: reportedItemData, isLoading, refetch } = useQuery({
         queryKey: ['reported-admin'],
-        queryFn: () => fetch(`http://localhost:5000/reported-admin`)
+        queryFn: () => fetch(`https://owatch-check-server.vercel.app/reported-admin`)
             .then(res => res.json())
     })
 
@@ -20,7 +20,7 @@ const ReportedAdmin = () => {
         const confirm = window.confirm('Are You Sure To Delete Item')
 
         if (confirm) {
-            fetch(`http://localhost:5000/watch/${reportedItem.product_id}`, {
+            fetch(`https://owatch-check-server.vercel.app/watch/${reportedItem.product_id}`, {
                 method: "DELETE"
             })
                 .then(res => res.json())
@@ -33,7 +33,7 @@ const ReportedAdmin = () => {
                         )
 
 
-                        fetch(`http://localhost:5000/reported-admin/${reportedItem._id}`, {
+                        fetch(`https://owatch-check-server.vercel.app/reported-admin/${reportedItem._id}`, {
                             method: "DELETE"
                         })
                             .then(res => res.json())
@@ -50,7 +50,7 @@ const ReportedAdmin = () => {
                 .catch(e => toast.error(e.message))
 
 
-            fetch(`http://localhost:5000/advertised/${reportedItem.product_id}`, {
+            fetch(`https://owatch-check-server.vercel.app/advertised/${reportedItem.product_id}`, {
                 method: "DELETE"
             })
                 .then(res => res.json())

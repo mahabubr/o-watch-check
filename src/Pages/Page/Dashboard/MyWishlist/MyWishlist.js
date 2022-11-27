@@ -10,7 +10,7 @@ const MyWishlist = () => {
 
     const { data: myWishlistData, isLoading } = useQuery({
         queryKey: ['my-wishlist', user?.email],
-        queryFn: () => fetch(`http://localhost:5000/my-wishlist/?email=${user?.email}`)
+        queryFn: () => fetch(`https://owatch-check-server.vercel.app/my-wishlist/?email=${user?.email}`)
             .then(res => res.json())
     })
 

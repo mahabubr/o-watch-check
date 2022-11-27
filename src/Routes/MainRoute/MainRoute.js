@@ -57,7 +57,7 @@ const router = createBrowserRouter([
                     <PrivateRoute>
                         <WatchItems />
                     </PrivateRoute>,
-                loader: async ({ params }) => fetch(`http://localhost:5000/watch-category/${params.id}`)
+                loader: async ({ params }) => fetch(`https://owatch-check-server.vercel.app/watch-category/${params.id}`)
             }
         ]
     },
@@ -94,7 +94,7 @@ const router = createBrowserRouter([
             },
             {
                 path: '/dashboard/payment/:id',
-                loader: async ({ params }) => fetch(`http://localhost:5000/my-orders/${params.id}`, {
+                loader: async ({ params }) => fetch(`https://owatch-check-server.vercel.app/my-orders/${params.id}`, {
                     headers: {
                         authorization: `Bearer ${localStorage.getItem('access-token')}`
                     }

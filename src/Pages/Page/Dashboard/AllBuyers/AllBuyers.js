@@ -8,7 +8,7 @@ const AllBuyers = () => {
 
     const { data: allBuyers, isLoading, refetch } = useQuery({
         queryKey: ['all-users', 'all-buyers'],
-        queryFn: () => fetch('http://localhost:5000/all-users/all-buyers')
+        queryFn: () => fetch('https://owatch-check-server.vercel.app/all-users/all-buyers')
             .then(res => res.json())
     })
 
@@ -20,7 +20,7 @@ const AllBuyers = () => {
         const confirm = window.confirm('Are Your Sure To Delete Buyers')
 
         if (confirm) {
-            fetch(`http://localhost:5000/all-users/${buyersInfo._id}`, {
+            fetch(`https://owatch-check-server.vercel.app/all-users/${buyersInfo._id}`, {
                 method: "DELETE"
             })
                 .then(res => res.json())

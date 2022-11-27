@@ -8,7 +8,7 @@ const AdvertisedItems = () => {
 
     const { data: advertisedItem, isLoading } = useQuery({
         queryKey: ['advertised'],
-        queryFn: () => fetch('http://localhost:5000/advertised', {
+        queryFn: () => fetch('https://owatch-check-server.vercel.app/advertised', {
             headers: {
                 authorization: `Bearer ${localStorage.getItem('access-token')}`
             }

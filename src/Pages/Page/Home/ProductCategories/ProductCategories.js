@@ -9,7 +9,7 @@ const ProductCategories = () => {
     useEffect(() => {
         axios({
             method: 'get',
-            url: 'http://localhost:5000/watch-category',
+            url: 'https://owatch-check-server.vercel.app/watch-category',
             responseType: 'json'
         })
             .then(function (response) {

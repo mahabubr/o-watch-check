@@ -17,7 +17,7 @@ const CheckOutForm = ({ myBookingPaymentInfo }) => {
 
     useEffect(() => {
         // Create PaymentIntent as soon as the page loads
-        fetch("http://localhost:5000/create-payment-intent", {
+        fetch("https://owatch-check-server.vercel.app/create-payment-intent", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -83,7 +83,7 @@ const CheckOutForm = ({ myBookingPaymentInfo }) => {
 
             }
 
-            fetch("http://localhost:5000/payments", {
+            fetch("https://owatch-check-server.vercel.app/payments", {
                 method: "POST",
                 headers: {
                     'content-type': 'application/json',
@@ -94,7 +94,7 @@ const CheckOutForm = ({ myBookingPaymentInfo }) => {
                 .then(data => {
                     if (data.insertedId) {
 
-                        fetch(`http://localhost:5000/watch/${booking_item_id}`, {
+                        fetch(`https://owatch-check-server.vercel.app/watch/${booking_item_id}`, {
                             method: "DELETE"
                         })
                             .then(res => res.json())
@@ -112,7 +112,7 @@ const CheckOutForm = ({ myBookingPaymentInfo }) => {
                             .catch(e => toast.error(e.message))
 
 
-                        fetch(`http://localhost:5000/advertised/${booking_item_id}`, {
+                        fetch(`https://owatch-check-server.vercel.app/advertised/${booking_item_id}`, {
                             method: "DELETE"
                         })
                             .then(res => res.json())

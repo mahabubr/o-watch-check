@@ -28,7 +28,7 @@ const WatchSingleItem = ({ item, setSingleWatch }) => {
         }
 
         if (confirm) {
-            fetch('http://localhost:5000/my-wishlist', {
+            fetch('https://owatch-check-server.vercel.app/my-wishlist', {
                 method: "POST",
                 headers: {
                     "content-type": "application/json"
@@ -62,7 +62,7 @@ const WatchSingleItem = ({ item, setSingleWatch }) => {
         }
 
         if (confirm) {
-            fetch('http://localhost:5000/reported-admin', {
+            fetch('https://owatch-check-server.vercel.app/reported-admin', {
                 method: "POST",
                 headers: {
                     "content-type": "application/json"

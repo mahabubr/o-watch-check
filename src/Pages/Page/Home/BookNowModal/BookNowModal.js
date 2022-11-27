@@ -26,7 +26,7 @@ const BookNowModal = ({ singleWatch, setSingleWatch }) => {
             booking_item_id: _id
         }
 
-        fetch('http://localhost:5000/my-orders', {
+        fetch('https://owatch-check-server.vercel.app/my-orders', {
             method: "POST",
             headers: {
                 "content-type": "application/json"

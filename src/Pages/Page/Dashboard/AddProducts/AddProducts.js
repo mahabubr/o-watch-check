@@ -60,7 +60,7 @@ const AddProducts = () => {
             seller_email
         }
 
-        fetch('http://localhost:5000/watch', {
+        fetch('https://owatch-check-server.vercel.app/watch', {
             method: "POST",
             headers: {
                 "content-type": "application/json"

@@ -13,7 +13,7 @@ const DashboardLayout = () => {
 
     const { data: userData, isLoading } = useQuery({
         queryKey: ['user', user.email],
-        queryFn: () => fetch(`http://localhost:5000/user/?email=${user.email}`)
+        queryFn: () => fetch(`https://owatch-check-server.vercel.app/user/?email=${user.email}`)
             .then(res => res.json())
     })
 

@@ -43,7 +43,7 @@ const SignUp = () => {
                                 email: result.user.email
                             }
 
-                            fetch('http://localhost:5000/jwt', {
+                            fetch('https://owatch-check-server.vercel.app/jwt', {
                                 method: 'POST',
                                 headers: {
                                     'content-type': 'application/json'
@@ -81,7 +81,7 @@ const SignUp = () => {
                                 verify: false
                             }
 
-                            fetch('http://localhost:5000/user', {
+                            fetch('https://owatch-check-server.vercel.app/user', {
                                 method: "POST",
                                 headers: {
                                     "content-type": "application/json"
@@ -148,7 +148,7 @@ const SignUp = () => {
                     email: result.user.email
                 }
 
-                fetch('http://localhost:5000/jwt', {
+                fetch('https://owatch-check-server.vercel.app/jwt', {
                     method: 'POST',
                     headers: {
                         'content-type': 'application/json'
@@ -170,7 +170,7 @@ const SignUp = () => {
                     verify: false
                 }
 
-                fetch('http://localhost:5000/user', {
+                fetch('https://owatch-check-server.vercel.app/user', {
                     method: "POST",
                     headers: {
                         "content-type": "application/json"
@@ -209,7 +209,7 @@ const SignUp = () => {
                     email: result.user.email
                 }
 
-                fetch('http://localhost:5000/jwt', {
+                fetch('https://owatch-check-server.vercel.app/jwt', {
                     method: 'POST',
                     headers: {
                         'content-type': 'application/json'
@@ -233,7 +233,7 @@ const SignUp = () => {
                     verify: false
                 }
 
-                fetch('http://localhost:5000/user', {
+                fetch('https://owatch-check-server.vercel.app/user', {
                     method: "POST",
                     headers: {
                         "content-type": "application/json"
@@ -272,7 +272,7 @@ const SignUp = () => {
                     email: result.user.email
                 }
 
-                fetch('http://localhost:5000/jwt', {
+                fetch('https://owatch-check-server.vercel.app/jwt', {
                     method: 'POST',
                     headers: {
                         'content-type': 'application/json'
@@ -296,7 +296,7 @@ const SignUp = () => {
                     verify: false
                 }
 
-                fetch('http://localhost:5000/user', {
+                fetch('https://owatch-check-server.vercel.app/user', {
                     method: "POST",
                     headers: {
                         "content-type": "application/json"
