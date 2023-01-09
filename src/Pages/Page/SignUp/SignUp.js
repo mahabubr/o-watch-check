@@ -379,15 +379,15 @@ const SignUp = () => {
                         <hr className="w-full text-gray-400" />
                     </div>
                     <div className="my-6 lg:w-4/12 space-y-4">
-                        <button onClick={singInWithGoogle} aria-label="Login with Google" type="button" className="flex items-center justify-center w-full p-4 space-x-4 border rounded-md focus:ring-2 focus:ring-offset-1 text-white bg-violet-400 focus:ring-violet-400 transform skew-y-12">
+                        <button onClick={singInWithGoogle} aria-label="Login with Google" type="button" className="flex items-center justify-center w-full p-4 space-x-4 border rounded-md focus:ring-2 focus:ring-offset-1 text-white bg-violet-500 focus:ring-violet-500 transform skew-y-12 hover:skew-y-0 duration-300 hover:scale-75">
                             <BsGoogle />
                             <p>Login with Google</p>
                         </button>
-                        <button onClick={handleYahooSignIn} aria-label="Login with GitHub" className="flex items-center justify-center w-full p-4 space-x-4 border rounded-md focus:ring-2 focus:ring-offset-1 text-white transform skew-y-12 bg-violet-400 focus:ring-violet-400">
+                        <button onClick={handleYahooSignIn} aria-label="Login with GitHub" className="flex items-center justify-center w-full p-4 space-x-4 border rounded-md focus:ring-2 focus:ring-offset-1 text-white transform skew-y-12 bg-violet-500 focus:ring-violet-500 hover:skew-y-0 duration-300 hover:scale-75">
                             <FaYahoo />
                             <p>Login with Yahoo</p>
                         </button>
-                        <button onClick={handleFacebookSignIn} aria-label="Login with Twitter" className="flex items-center justify-center w-full p-4 space-x-4 border rounded-md focus:ring-2 focus:ring-offset-1 text-white transform skew-y-12 bg-violet-400 focus:ring-violet-400">
+                        <button onClick={handleFacebookSignIn} aria-label="Login with Twitter" className="flex items-center justify-center w-full p-4 space-x-4 border rounded-md focus:ring-2 focus:ring-offset-1 text-white transform skew-y-12 bg-violet-500 focus:ring-violet-500 hover:skew-y-0 duration-300 hover:scale-75">
                             <FaFacebook />
                             <p>Login with Facebook</p>
                         </button>

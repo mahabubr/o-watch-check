@@ -80,7 +80,7 @@ const Navbar = () => {
                         {menuBar}
                     </ul>
                 </div>
-                <label htmlFor="dashboard-drawer" className="btn btn-primary ml-20 drawer-button lg:hidden">
+                <label htmlFor="dashboard-drawer" className="btn btn-primary ml-36 drawer-button lg:hidden">
                     <AiOutlineAlignRight />
                 </label>
                 <div className="navbar-end hidden md:flex">
