@@ -20,11 +20,20 @@ const SingleProducts = ({ watch }) => {
                         <button type="button" className="inline-block w-full py-4 bg-indigo-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-indigo-700 hover:shadow-lg focus:bg-indigo-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-indigo-800 active:shadow-lg transition duration-150 ease-in-out">See {name} Category</button>
                     </Link>
                 </div>
-                <div className="py-3 px-6 border-t border-gray-300 text-gray-600">
-                    <Link to='/'>
-                        <p className='underline text-sm text-sky-600'>About More This Products</p>
-                    </Link>
-                </div>
+                <label htmlFor="my-modal-3" className="py-3 px-6 border-t border-gray-300 text-gray-600 cursor-pointer">
+                    <p className='underline text-sm text-sky-600'>About More This Products</p>
+                    {/* Put this part before </body> tag */}
+                    <input type="checkbox" id="my-modal-3" className="modal-toggle" />
+                    <div className="modal">
+                        <div className="modal-box relative">
+                            <label htmlFor="my-modal-3" className="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
+                            <h3 className="text-lg font-bold">About Watch</h3>
+                            <p className="py-4">A watch is a small clock carried or worn by a person. It makes it easy to see the time. It is also a fashion accessory for men and women, and expensive watches are designed for this purpose. A watch may be one of the few accessories worn by a person.</p>
+                            <p className="py-4">A wristwatch is designed to be worn on a wrist, attached by a strap or other type of bracelet. A pocket watch is to be carried in a pocket. There are other variations. Nurses often wear a watch attached to the front of their uniform. It hangs down from a short strap: when lifted by the user it is right side up.</p>
+                        </div>
+                    </div>
+
+                </label>
             </div>
         </div>
     );

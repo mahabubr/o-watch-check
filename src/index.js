@@ -5,6 +5,8 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import AuthProvider from './Contexts/AuthProvider/AuthProvider';
 
+import "leaflet/dist/leaflet.css";
+
 // Query Client
 import {
   QueryClient,

@@ -6,6 +6,9 @@ import { FaFacebook, FaYahoo } from 'react-icons/fa';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import { AuthContext } from '../../../Contexts/AuthProvider/AuthProvider';
+import Lottie from "lottie-react";
+import lottieJson from '../../../Assets/animation/login.json'
+
 
 const Login = () => {
 
@@ -258,46 +261,48 @@ const Login = () => {
             <Helmet>
                 <title>O-Watch Check - Login</title>
             </Helmet>
-            <div className="w-9/12 my-20 mx-auto p-4 rounded-md sm:p-8 ">
-                <h2 className="mb-3 text-5xl font-semibold text-center">Login To Enter</h2>
-                <p className="text-lg text-center">New In The Website?
-                    <Link to='/signup' rel="noopener noreferrer" className="focus:underline hover:underline text-blue-600"> Sign Up Here</Link>
-                </p>
-                <div className='block lg:flex justify-between items-center mt-8'>
-                    <form onSubmit={handleLogin} noValidate="" action="" className="space-y-8 ng-untouched ng-pristine ng-valid lg:w-6/12">
-                        <div className="space-y-4">
-                            <div className="space-y-2">
-                                <label htmlFor="email" className="block text-sm">Email Address</label>
-                                <input required type="email" name="email" id="email" placeholder="Email Address" className="w-full px-3 py-4 border rounded-md border-gray-700 text-gray-900 bg-gray-100 focus:border-violet-400" />
-                            </div>
-                            <div className="space-y-2">
-                                <div className="flex justify-between">
-                                    <label htmlFor="password" className="text-sm">Password</label>
-                                    <Link rel="noopener noreferrer" to='/forget' className="text-xs hover:underline text-gray-400">Forgot password?</Link>
-                                </div>
-                                <input required type="password" name="password" id="password" placeholder="*****" className="w-full px-3 py-4 border rounded-md border-gray-700 text-gray-900 bg-gray-100 focus:border-violet-400" />
-                            </div>
-                        </div>
-                        <input className="inline-block w-full py-4 bg-indigo-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-indigo-700 hover:shadow-lg focus:bg-indigo-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-indigo-800 active:shadow-lg transition duration-150 ease-in-out cursor-pointer" type="submit" value="Login" />
-                    </form>
-                    <div className="flex items-center w-2/12 rotate-90 my-4">
-                        <hr className="w-full text-gray-400" />
-                        <p className="px-3 text-gray-400">OR</p>
-                        <hr className="w-full text-gray-400" />
+            <div className="my-20 p-4 rounded-md sm:p-8 ">
+                <div className='lg:flex justify-evenly items-center'>
+                    <div className='lg:w-4/12 bg-violet-400 p-8 rounded-lg shadow-lg mb-6'>
+                        <Lottie animationData={lottieJson} loop={true} />
                     </div>
-                    <div className="my-6 lg:w-4/12 space-y-4">
-                        <button onClick={singInWithGoogle} aria-label="Login with Google" type="button" className="flex items-center justify-center w-full p-4 space-x-4 border rounded-md focus:ring-2 focus:ring-offset-1 text-white bg-violet-500 focus:ring-violet-500 transform skew-y-12 hover:skew-y-0 duration-300 hover:scale-75">
-                            <BsGoogle />
-                            <p>Login with Google</p>
-                        </button>
-                        <button onClick={handleYahooSignIn} aria-label="Login with GitHub" className="flex items-center justify-center w-full p-4 space-x-4 border rounded-md focus:ring-2 focus:ring-offset-1 text-white transform skew-y-12 hover:skew-y-0 duration-300 hover:scale-75 bg-violet-500 focus:ring-violet-500">
-                            <FaYahoo />
-                            <p>Login with Yahoo</p>
-                        </button>
-                        <button onClick={handleFacebookSignIn} aria-label="Login with Twitter" className="flex items-center justify-center w-full p-4 space-x-4 border rounded-md focus:ring-2 focus:ring-offset-1 text-white transform skew-y-12 hover:skew-y-0 duration-300 hover:scale-75 bg-violet-500 focus:ring-violet-500">
-                            <FaFacebook />
-                            <p>Login with Facebook</p>
-                        </button>
+                    <div className='lg:flex justify-between items-center mt-8'>
+                        <form onSubmit={handleLogin} noValidate="" action="" className="space-y-8 ng-untouched ng-pristine ng-valid">
+                            <h2 className="mb-3 text-4xl font-semibold text-center">Login To Enter</h2>
+                            <div className="space-y-4">
+                                <div className="space-y-2">
+                                    <label htmlFor="email" className="block text-sm">Email Address</label>
+                                    <input required type="email" name="email" id="email" placeholder="Email Address" className="w-full px-3 py-4 border rounded-md border-gray-700 text-gray-900 bg-gray-100 focus:border-violet-400" />
+                                </div>
+                                <div className="space-y-2">
+                                    <div className="flex justify-between">
+                                        <label htmlFor="password" className="text-sm">Password</label>
+                                        <Link rel="noopener noreferrer" to='/forget' className="text-xs hover:underline text-gray-400">Forgot password?</Link>
+                                    </div>
+                                    <input required type="password" name="password" id="password" placeholder="*****" className="w-full px-3 py-4 border rounded-md border-gray-700 text-gray-900 bg-gray-100 focus:border-violet-400" />
+                                </div>
+                            </div>
+                            <input className="inline-block w-full py-4 bg-indigo-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-indigo-700 hover:shadow-lg focus:bg-indigo-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-indigo-800 active:shadow-lg transition duration-150 ease-in-out cursor-pointer" type="submit" value="Login" />
+                            <p className="text-lg text-center">New In The Website?
+                                <Link to='/signup' rel="noopener noreferrer" className="focus:underline hover:underline text-blue-600"> Sign Up Here</Link>
+                            </p>
+                        </form>
+                        <div className="flex items-center my-4 lg:rotate-90">
+                            <hr className="w-full text-gray-400" />
+                            <p className="px-3 text-gray-400">OR</p>
+                            <hr className="w-full text-gray-400" />
+                        </div>
+                        <div className="my-6 space-y-4">
+                            <button onClick={singInWithGoogle} aria-label="Login with Google" className="flex items-center justify-center w-full p-4 space-x-4 border rounded-md focus:ring-2 focus:ring-offset-1 text-white bg-violet-500 focus:ring-violet-500">
+                                <BsGoogle />
+                            </button>
+                            <button onClick={handleYahooSignIn} aria-label="Login with GitHub" className="flex items-center justify-center w-full p-4 space-x-4 border rounded-md focus:ring-2 focus:ring-offset-1 text-white bg-violet-500 focus:ring-violet-500">
+                                <FaYahoo />
+                            </button>
+                            <button onClick={handleFacebookSignIn} aria-label="Login with Twitter" className="flex items-center justify-center w-full p-4 space-x-4 border rounded-md focus:ring-2 focus:ring-offset-1 text-white bg-violet-500 focus:ring-violet-500">
+                                <FaFacebook />
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>

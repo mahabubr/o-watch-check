@@ -55,12 +55,12 @@ const Navbar = () => {
     </React.Fragment>
 
     return (
-        <div className='bg-slate-200'>
+        <div className='bg-gray-900'>
             <nav className="navbar md:w-11/12 md:mx-auto">
                 <div className="navbar-start">
                     <div className="dropdown">
                         <label tabIndex={0} className="btn btn-ghost lg:hidden">
-                            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" className="h-5 text-white w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
                         </label>
                         <ul tabIndex={0} className="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
                             {menuBar}
@@ -69,9 +69,9 @@ const Navbar = () => {
                     <Link to="/"
                         className="font-bold leading-relaxed inline-block mr-4 py-2 whitespace-nowrap uppercase "
                     >
-                        <div className='flex justify-center items-center'>
+                        <div className='flex justify-center items-center ml-3'>
                             <img className='w-10 h-10' src={logo} alt="" />
-                            <p className='text-xl text-blue-900'>O-Watch Check</p>
+                            <p className='text-xl text-blue-600'>O-Watch Check</p>
                         </div>
                     </Link>
                 </div>
@@ -84,7 +84,6 @@ const Navbar = () => {
                     <AiOutlineAlignRight />
                 </label>
                 <div className="navbar-end hidden md:flex">
-
                     {
                         user
                             ?
@@ -101,10 +100,14 @@ const Navbar = () => {
                             :
                             <>
                                 <Link to='/login'>
-                                    <button className="btn btn-accent mr-2">Login</button>
+                                    <button className="btn btn-secondary mr-2">
+                                        Login
+                                    </button>
                                 </Link>
                                 <Link to='/signup'>
-                                    <button className="btn btn-accent ml-2 btn-outline">Sign Up</button>
+                                    <button className="btn btn-secondary ml-2 btn-outline">
+                                        Sign Up
+                                    </button>
                                 </Link>
 
                             </>
