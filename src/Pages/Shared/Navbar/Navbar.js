@@ -33,6 +33,14 @@ const Navbar = () => {
         }>
             <ul>Home</ul>
         </NavLink>
+        <NavLink to='/all-watches' className={({ isActive }) => isActive
+            ?
+            'px-3 py-2 flex items-center uppercase font-bold leading-snug mr-6 text-orange-600 border-b-2 border-orange-600'
+            :
+            'px-3 py-2 flex items-center text-lg uppercase font-bold leading-snug mr-6'
+        }>
+            <ul>All Watches</ul>
+        </NavLink>
         <NavLink to='/blog' className={({ isActive }) => isActive
             ?
             'px-3 py-2 flex items-center uppercase font-bold leading-snug mr-6 text-orange-600 border-b-2 border-orange-600'
