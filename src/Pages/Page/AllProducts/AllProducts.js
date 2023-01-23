@@ -2,20 +2,29 @@ import React from 'react';
 import { useEffect } from 'react';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import Loader from '../../../Components/Loader/Loader';
 
 const AllProducts = () => {
 
     const [allWatches, setAllWatches] = useState([])
+    const [loading, setLoading] = useState(true)
 
     useEffect(() => {
-        fetch('http://localhost:5000/watch')
+        fetch('https://owatch-check-server.vercel.app/watch')
             .then(res => res.json())
-            .then(data => setAllWatches(data))
+            .then(data => {
+                setLoading(false)
+                setAllWatches(data)
+            })
     }, [])
+
+    if(loading) {
+        return <Loader/>
+    }
 
     return (
         <div className='w-10/12 mx-auto my-20'>
-            <div className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10'>
+            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10'>
                 {
                     allWatches.map(watch =>
                         <div key={watch._id} className="shadow-lg drop-shadow-lg p-6 rounded-sm hover:scale-110 duration-500">

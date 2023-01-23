@@ -21,9 +21,11 @@ const ProductCategories = () => {
 
     return (
         <div className='w-10/12 mx-auto my-20'>
-            <h1 className='text-3xl font-bold text-center border-dashed drop-shadow-md shadow-indigo-300 shadow-md text-indigo-600 border-b-2 border-indigo-500'>Watch Catagories</h1>
-
-            <div className='mt-10 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10'>
+            <div>
+                <h1 className='text-4xl font-bold text-center drop-shadow-md'>Watch Category</h1>
+                <p className='text-center my-4 mb-8'>All the watch category on here. You can open any category that you like and buy you watch</p>
+            </div>
+            <div className='mt-10 grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 gap-10'>
                 {
                     watchCategory.map(watch => <SingleProducts key={watch._id} watch={watch} />)
                 }

@@ -25,7 +25,10 @@ const AdvertisedItems = () => {
             {
                 advertisedItem.length > 0 &&
                 <>
-                    <h1 className='text-3xl font-bold text-center border-dashed drop-shadow-md shadow-indigo-300 shadow-md text-indigo-600 border-b-2 border-indigo-500 mb-10 w-10/12 mx-auto'>Peoples's Choice</h1>
+                    <div>
+                        <h1 className='text-4xl font-bold text-center drop-shadow-md'>Peoples's Choice</h1>
+                        <p className='text-center my-4 mb-8'>There we show advertised watches that buyer paid us for boost his product</p>
+                    </div>
                     <Swiper
                         slidesPerView={1}
                         breakpoints={

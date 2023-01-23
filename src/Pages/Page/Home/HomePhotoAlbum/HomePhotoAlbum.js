@@ -18,8 +18,13 @@ const HomePhotoAlbum = () => {
 
     return (
         <div className='my-20 w-10/12 mx-auto'>
-            <h1 className='text-3xl font-bold text-center border-dashed drop-shadow-md shadow-indigo-300 shadow-md text-indigo-600 border-b-2 border-indigo-500 mb-10 w-10/12 mx-auto'>Watch Album</h1>
-            <PhotoAlbum layout="masonry" photos={photos} />
+            <div>
+                <h1 className='text-4xl font-bold text-center drop-shadow-md'>Album</h1>
+                <p className='text-center my-4 mb-8'>Most favorite watches on here. There we share we out people choice watches.</p>
+            </div>
+            <div>
+                <PhotoAlbum layout="columns" photos={photos} />
+            </div>
         </div>
     );
 };
