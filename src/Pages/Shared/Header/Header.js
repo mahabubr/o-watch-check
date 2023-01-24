@@ -84,7 +84,7 @@ const Header = () => {
             {/* Top Nav End  */}
             {/* Middle Nav Start  */}
             <div className='mt-10 w-10/12 mx-auto'>
-                <div className='cursor-pointer space-x-6 flex justify-center mb-8 border-b-2 border-gray-700 pb-6 text-orange-700 md:hidden'>
+                <div className='cursor-pointer flex w-full justify-between items-center text-white bg-indigo-600 py-4 px-6 mb-8 md:hidden'>
                     <Link to='/'>
                         <AiFillHome className='text-4xl' />
                     </Link>
@@ -156,7 +156,7 @@ const Header = () => {
             </div>
             {/* Middle Nav End  */}
             {/* Bottom Nav Start  */}
-            <div className='mt-10 bg-slate-100 p-6 drop-shadow-lg border border-gray-300'>
+            <div className='hidden md:block mt-10 bg-slate-100 p-6 drop-shadow-lg border border-gray-300'>
                 <div className='w-9/12 mx-auto flex justify-center space-x-8 items-center'>
                     <NavLink to='/' className={({ isActive }) => isActive
                         ?

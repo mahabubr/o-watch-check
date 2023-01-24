@@ -33,7 +33,7 @@ const AllProducts = () => {
                             </Link>
                             <img src={watch.product_pic} className="w-full h-40 object-cover" alt="" />
                             <h3 className='text-lg font-bold my-4 h-24'>{watch.product_name.slice(0, 60)}</h3>
-                            <p className='text-violet-500 text-xl'>Price : {watch.product_resale_price}</p>
+                            <p className='text-violet-500 text-xl'>Price : ${watch.product_resale_price}</p>
                             <p>Use Time : {watch.product_years_use}</p>
                         </div>
                     )

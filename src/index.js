@@ -7,6 +7,9 @@ import AuthProvider from './Contexts/AuthProvider/AuthProvider';
 
 import "leaflet/dist/leaflet.css";
 
+import 'aos/dist/aos.css'; // You can also use <link> for styles
+
+
 // Query Client
 import {
   QueryClient,

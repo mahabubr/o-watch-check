@@ -20,7 +20,7 @@ const ProductCategories = () => {
     }, [])
 
     return (
-        <div className='w-10/12 mx-auto my-20'>
+        <div className='w-10/12 mx-auto my-20' data-aos="flip-down">
             <div>
                 <h1 className='text-4xl font-bold text-center drop-shadow-md'>Watch Category</h1>
                 <p className='text-center my-4 mb-8'>All the watch category on here. You can open any category that you like and buy you watch</p>

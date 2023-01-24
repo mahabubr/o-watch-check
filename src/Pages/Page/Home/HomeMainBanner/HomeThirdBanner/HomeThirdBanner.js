@@ -15,7 +15,7 @@ const HomeThirdBanner = () => {
                                 Buy Your Second Hand Watch
                             </h1>
                             <Link to='/watch-category/637f6e38b2c7870c08c21403'>
-                                <button className="hidden md:block mt-10 px-10 py-4 bg-orange-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-orange-700 hover:shadow-lg focus:bg-orange-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-orange-800 active:shadow-lg transition duration-150 ease-in-out cursor-pointer">Smart Watch</button>
+                                <button className="hidden md:block mt-10 px-10 py-4 bg-pink-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-pink-700 hover:shadow-lg focus:bg-pink-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-pink-800 active:shadow-lg transition duration-150 ease-in-out cursor-pointer">Smart Watch</button>
                             </Link>
                         </div>
                         <div className='w-5/12'>

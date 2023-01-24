@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const HomeSubBanner = () => {
     return (
-        <div className="p-6 py-12 bg-pink-400 text-gray-900 my-20 lg:w-8/12 w-10/12 mx-auto rounded-xl">
+        <div className="p-6 py-12 bg-pink-400 text-gray-900 my-20 lg:w-8/12 w-10/12 mx-auto rounded-xl" data-aos="flip-right">
             <div className="container mx-auto">
                 <div className="flex flex-col lg:flex-row items-center justify-between">
                     <h2 className="text-center text-6xl tracking-tighter font-bold">Up to

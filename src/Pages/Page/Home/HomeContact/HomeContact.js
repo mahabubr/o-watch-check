@@ -14,7 +14,9 @@ const HomeContact = () => {
                 <p className='text-center my-4 mb-8'>If you have any doubt with us. Feel free and contact with us.</p>
             </div>
             <div className='mb-20 w-8/12 mx-auto block lg:flex justify-center items-center'>
-                <div className='lg:w-4/12 p-8'>
+                <div className='lg:w-4/12 p-8' data-aos="flip-left"
+                    data-aos-easing="ease-out-cubic"
+                    data-aos-duration="2000">
                     <h1 className='text-indigo-600 border-b-2 border-indigo-500 mb-10'>Contact Info</h1>
                     <div className='space-y-2'>
                         <div className='flex'>
@@ -31,7 +33,10 @@ const HomeContact = () => {
                         </div>
                     </div>
                 </div>
-                <div className='lg:w-8/12'>
+                <div className='lg:w-8/12' data-aos="fade-left"
+                    data-aos-anchor="#example-anchor"
+                    data-aos-offset="500"
+                    data-aos-duration="500">
                     <MapContainer className='leaflet-container' center={[23.6850, 90.3563]} zoom={8} scrollWheelZoom={true}>
                         <TileLayer
                             attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'

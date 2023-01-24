@@ -17,7 +17,8 @@ const HomePhotoAlbum = () => {
     ];
 
     return (
-        <div className='my-20 w-10/12 mx-auto'>
+        <div className='my-20 w-10/12 mx-auto' data-aos="fade-up"
+            data-aos-duration="3000">
             <div>
                 <h1 className='text-4xl font-bold text-center drop-shadow-md'>Album</h1>
                 <p className='text-center my-4 mb-8'>Most favorite watches on here. There we share we out people choice watches.</p>

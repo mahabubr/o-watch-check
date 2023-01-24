@@ -21,7 +21,8 @@ const AdvertisedItems = () => {
     }
 
     return (
-        <section className='my-28'>
+        <section className='my-28' data-aos="fade-up"
+            data-aos-anchor-placement="bottom-bottom">
             {
                 advertisedItem.length > 0 &&
                 <>
