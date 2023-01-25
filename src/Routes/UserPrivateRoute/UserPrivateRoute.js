@@ -8,10 +8,9 @@ const UserPrivateRoute = ({ children }) => {
 
     const { user } = useContext(AuthContext)
 
-
     const { data: userData, isLoading } = useQuery({
-        queryKey: ['user', user.email],
-        queryFn: () => fetch(`https://owatch-check-server.vercel.app/user/?email=${user.email}`)
+        queryKey: ['user', user?.email],
+        queryFn: () => fetch(`https://owatch-check-server.vercel.app/user/?email=${user?.email}`)
             .then(res => res.json())
     })
 
@@ -19,7 +18,7 @@ const UserPrivateRoute = ({ children }) => {
         return <Loader />
     }
 
-    if (userData.role === "buyer") {
+    if (userData?.role === "buyer") {
         return children
     }
 

@@ -57,32 +57,15 @@ const router = createBrowserRouter([
                 element: <Blog />
             },
             {
-                path: '/watch-category/:id',
+                path: '/my-wishlist',
                 element:
-                    <PrivateRoute>
-                        <WatchItems />
-                    </PrivateRoute>,
-                loader: async ({ params }) => fetch(`https://owatch-check-server.vercel.app/watch-category/${params.id}`)
-            }
-        ]
-    },
-    {
-        path: '/dashboard',
-        element:
-            <PrivateRoute>
-                <DashboardLayout />,
-            </PrivateRoute>,
-        errorElement: <NotFound />,
-        children: [
-            {
-                path: '/dashboard',
-                element:
-                    <PrivateRoute>
-                        <Dashboard />
-                    </PrivateRoute>
+                    <UserPrivateRoute>
+                        <MyWishlist />
+                    </UserPrivateRoute>
             },
+
             {
-                path: '/dashboard/my-orders',
+                path: '/my-orders',
                 element:
                     <UserPrivateRoute>
                         <MyOrders />
@@ -90,15 +73,44 @@ const router = createBrowserRouter([
 
             },
             {
-                path: '/dashboard/my-wishlist',
+                path: '/add-products',
                 element:
-                    <UserPrivateRoute>
-                        <MyWishlist />
-                    </UserPrivateRoute>
+                    <SellerPrivateRoute>
+                        <AddProducts />
+                    </SellerPrivateRoute>
+            },
 
+            {
+                path: '/my-products',
+                element:
+                    <SellerPrivateRoute>
+                        <MyProducts />
+                    </SellerPrivateRoute>
+            },
+
+            {
+                path: '/all-sellers',
+                element:
+                    <AdminRoute>
+                        <AllSellers />
+                    </AdminRoute>
             },
             {
-                path: '/dashboard/payment/:id',
+                path: '/all-buyers',
+                element:
+                    <AdminRoute>
+                        <AllBuyers />
+                    </AdminRoute>
+            },
+            {
+                path: '/reported-items',
+                element:
+                    <AdminRoute>
+                        <ReportedAdmin />
+                    </AdminRoute>
+            },
+            {
+                path: '/payment/:id',
                 loader: async ({ params }) => fetch(`https://owatch-check-server.vercel.app/my-orders/${params.id}`, {
                     headers: {
                         authorization: `Bearer ${localStorage.getItem('access-token')}`
@@ -110,42 +122,32 @@ const router = createBrowserRouter([
                     </UserPrivateRoute>
             },
             {
-                path: '/dashboard/add-products',
+                path: '/watch-category/:id',
                 element:
-                    <SellerPrivateRoute>
-                        <AddProducts />
-                    </SellerPrivateRoute>
-            },
-            {
-                path: '/dashboard/my-products',
-                element:
-                    <SellerPrivateRoute>
-                        <MyProducts />
-                    </SellerPrivateRoute>
-            },
-            {
-                path: '/dashboard/all-sellers',
-                element:
-                    <AdminRoute>
-                        <AllSellers />
-                    </AdminRoute>
-            },
-            {
-                path: '/dashboard/all-buyers',
-                element:
-                    <AdminRoute>
-                        <AllBuyers />
-                    </AdminRoute>
-            },
-            {
-                path: '/dashboard/reported-items',
-                element:
-                    <AdminRoute>
-                        <ReportedAdmin />
-                    </AdminRoute>
+                    <PrivateRoute>
+                        <WatchItems />
+                    </PrivateRoute>,
+                loader: async ({ params }) => fetch(`https://owatch-check-server.vercel.app/watch-category/${params.id}`)
             }
         ]
-    }
+    },
+    // {
+    //     path: '/dashboard',
+    //     element:
+    //         <PrivateRoute>
+    //             <DashboardLayout />,
+    //         </PrivateRoute>,
+    //     errorElement: <NotFound />,
+    //     children: [
+    //         {
+    //             path: '/dashboard',
+    //             element:
+    //                 <PrivateRoute>
+    //                     <Dashboard />
+    //                 </PrivateRoute>
+    //         },
+    //     ]
+    // }
 ])
 
 export default router

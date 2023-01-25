@@ -1,22 +1,30 @@
 import React from 'react';
 import mainLogo from '../../../Assets/mainlogo.png'
-import { BsArrowDownLeftSquareFill, BsCart4 } from 'react-icons/bs';
+import { BsArrowDownLeftSquareFill, BsCart4, BsFillPeopleFill } from 'react-icons/bs';
 import { AiFillHeart, AiOutlineLogout, AiFillHome } from 'react-icons/ai';
+import { IoPeopleCircleOutline } from 'react-icons/io5';
 import { FaSearch, FaUserAlt, FaBloggerB } from 'react-icons/fa';
+import { CgAdd } from 'react-icons/cg';
 import { FiWatch } from 'react-icons/fi';
-import { MdDashboard } from 'react-icons/md';
+import { MdDashboard, MdProductionQuantityLimits, MdReport } from 'react-icons/md';
 import { Link, NavLink } from 'react-router-dom';
-import ShoppingCart from '../../../Components/ShoppingCart/ShoppingCart';
+// import ShoppingCart from '../../../Components/ShoppingCart/ShoppingCart';
 import { useContext } from 'react';
 import { AuthContext } from '../../../Contexts/AuthProvider/AuthProvider';
 import { toast } from 'react-hot-toast';
 import Swal from 'sweetalert2';
+import { useQuery } from '@tanstack/react-query';
 
 
 const Header = () => {
 
     const { user, logOut } = useContext(AuthContext)
 
+    const { data: userData, isLoading } = useQuery({
+        queryKey: ['user', user?.email],
+        queryFn: () => fetch(`https://owatch-check-server.vercel.app/user/?email=${user?.email}`)
+            .then(res => res.json())
+    })
 
     const handleSearchBar = () => {
         alert('Developer Working Now')
@@ -84,7 +92,7 @@ const Header = () => {
             {/* Top Nav End  */}
             {/* Middle Nav Start  */}
             <div className='mt-10 w-10/12 mx-auto'>
-                <div className='cursor-pointer flex w-full justify-between items-center text-white bg-indigo-600 py-4 px-6 mb-8 md:hidden'>
+                <div className='cursor-pointer flex w-full justify-around items-center text-white bg-indigo-600 py-4 px-6 mb-8 md:hidden'>
                     <Link to='/'>
                         <AiFillHome className='text-4xl' />
                     </Link>
@@ -94,9 +102,9 @@ const Header = () => {
                     <Link to='/blog'>
                         <FaBloggerB className='text-4xl' />
                     </Link>
-                    <Link to='/dashboard'>
+                    {/* <Link to='/dashboard'>
                         <MdDashboard className='text-4xl' />
-                    </Link>
+                    </Link> */}
                 </div>
                 <div className='flex justify-between items-center'>
                     <Link to='/'>
@@ -105,21 +113,21 @@ const Header = () => {
                             <h1 className='text-3xl mt-3 ml-4 font-bold hidden lg:block'>O-<span className='text-orange-500 text-4xl'>Watch</span> Check</h1>
                         </div>
                     </Link>
-                    <div className='flex justify-center items-center space-x-5'>
-                        <div className='cursor-pointer' onClick={handleSearchBar}>
+                    <div className='flex justify-center items-center space-x-3'>
+                        <div className='cursor-pointer tooltip' onClick={handleSearchBar} data-tip="Search">
                             <FaSearch className='text-2xl' />
                         </div>
                         <span className='border w-8 border-gray-800 rotate-90'></span>
                         {
                             user
                                 ?
-                                <div onClick={handleSignOut} className='flex justify-center items-center cursor-pointer'>
+                                <div onClick={handleSignOut} className='flex justify-center items-center cursor-pointer tooltip' data-tip="Log Out">
                                     <AiOutlineLogout className='text-2xl mr-2' />
                                     <p className='hidden md:block'>Log Out</p>
                                 </div>
                                 :
                                 <Link to='/login'>
-                                    <div className='flex justify-center items-center cursor-pointer'>
+                                    <div className='flex justify-center items-center cursor-pointer tooltip' data-tip="Login">
                                         <FaUserAlt className='text-2xl mr-2' />
                                         <p className='hidden md:block'>Login / Register</p>
                                     </div>
@@ -127,20 +135,95 @@ const Header = () => {
                         }
 
                         <span className='border w-8 border-gray-800 rotate-90'></span>
-                        <div className="dropdown dropdown-left">
-                            <label tabIndex={0} className="cursor-pointer">
-                                <BsCart4 className='text-2xl' />
-                            </label>
-                            <ul tabIndex={0} className="dropdown-content menu p-2 shadow bg-base-100 rounded-box w-52">
-                                <ShoppingCart />
-                            </ul>
-                        </div>
-                        <span className='border w-8 border-gray-800 rotate-90'></span>
-                        <Link to='/dashboard/my-wishlist'>
-                            <div className='cursor-pointer'>
-                                <AiFillHeart className='text-2xl' />
-                            </div>
-                        </Link>
+                        {
+                            userData?.role === "buyer" &&
+                            <>
+                                <NavLink to='/my-orders' className={({ isActive }) => isActive
+                                    ?
+                                    'text-lg font-semibold text-rose-600 tooltip'
+                                    :
+                                    'text-lg font-semibold tooltip'
+                                } data-tip="Cart">
+                                    <div className='cursor-pointer'>
+                                        <BsCart4 className='text-2xl' />
+                                    </div>
+                                </NavLink>
+                                <span className='border w-8 border-gray-800 rotate-90'></span>
+                                <NavLink to='/my-wishlist' className={({ isActive }) => isActive
+                                    ?
+                                    'text-lg font-semibold text-rose-600 tooltip'
+                                    :
+                                    'text-lg font-semibold tooltip'
+                                } data-tip="Wishlist">
+                                    <div className='cursor-pointer'>
+                                        <AiFillHeart className='text-2xl' />
+                                    </div>
+                                </NavLink>
+                            </>
+                        }
+                        {
+                            userData?.role === "seller" &&
+                            <>
+                                <NavLink to='/add-products' className={({ isActive }) => isActive
+                                    ?
+                                    'text-lg font-semibold text-rose-600 tooltip'
+                                    :
+                                    'text-lg font-semibold tooltip'
+                                } data-tip="Add Products">
+                                    <div className='cursor-pointer'>
+                                        <CgAdd className='text-2xl' />
+                                    </div>
+                                </NavLink>
+                                <span className='border w-8 border-gray-800 rotate-90'></span>
+                                <NavLink to='/my-products' className={({ isActive }) => isActive
+                                    ?
+                                    'text-lg font-semibold text-rose-600 tooltip'
+                                    :
+                                    'text-lg font-semibold tooltip'
+                                } data-tip="My Products">
+                                    <div className='cursor-pointer'>
+                                        <MdProductionQuantityLimits className='text-2xl' />
+                                    </div>
+                                </NavLink>
+                            </>
+                        }
+                        {
+                            userData?.role === "admin" &&
+                            <>
+                                <NavLink to='/all-sellers' className={({ isActive }) => isActive
+                                    ?
+                                    'text-lg font-semibold text-rose-600 tooltip'
+                                    :
+                                    'text-lg font-semibold tooltip'
+                                } data-tip="All Sellers">
+                                    <div className='cursor-pointer'>
+                                        <IoPeopleCircleOutline className='text-2xl' />
+                                    </div>
+                                </NavLink>
+                                <span className='border w-8 border-gray-800 rotate-90'></span>
+                                <NavLink to='/all-buyers' className={({ isActive }) => isActive
+                                    ?
+                                    'text-lg font-semibold text-rose-600 tooltip'
+                                    :
+                                    'text-lg font-semibold tooltip'
+                                } data-tip="All Buyers">
+                                    <div className='cursor-pointer'>
+                                        <BsFillPeopleFill className='text-2xl' />
+                                    </div>
+                                </NavLink>
+                                <span className='border w-8 border-gray-800 rotate-90'></span>
+                                <NavLink to='/reported-items' className={({ isActive }) => isActive
+                                    ?
+                                    'text-lg font-semibold text-rose-600 tooltip'
+                                    :
+                                    'text-lg font-semibold tooltip'
+                                } data-tip="Reported Items">
+                                    <div className='cursor-pointer'>
+                                        <MdReport className='text-2xl' />
+                                    </div>
+                                </NavLink>
+                            </>
+                        }
                         {
                             user &&
                             <Link to='/my-profile' data-tip={user?.displayName} className="tooltip tooltip-bottom hidden md:block">
@@ -182,7 +265,7 @@ const Header = () => {
                     }>
                         <ul>Blog</ul>
                     </NavLink>
-                    {
+                    {/* {
                         user &&
                         <NavLink to='/dashboard' className={({ isActive }) => isActive
                             ?
@@ -192,7 +275,7 @@ const Header = () => {
                         }>
                             <ul>Dashboard</ul>
                         </NavLink>
-                    }
+                    } */}
                 </div>
             </div>
             {/* Bottom Nav End  */}

@@ -106,7 +106,7 @@ const CheckOutForm = ({ myBookingPaymentInfo }) => {
                                         `Your Payment Successfully Complete - ${paymentIntent.id}`,
                                         'success'
                                     )
-                                    navigate('/dashboard/my-orders')
+                                    navigate('/my-orders')
                                 }
                             })
                             .catch(e => toast.error(e.message))

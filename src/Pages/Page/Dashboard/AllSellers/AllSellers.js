@@ -73,8 +73,8 @@ const AllSellers = () => {
 
 
     return (
-        <div>
-            <h2 className='text-2xl font-bold text-pink-500 border-b-2 border-pink-500 p-2 cursor-pointer'>All Sellers : {allSeller.length}</h2>
+        <div className='w-9/12 mx-auto my-20'>
+            <h1 className='text-4xl font-bold text-center drop-shadow-md'>All Sellers</h1>
             <div className='mt-10'>
                 <div className="overflow-x-auto">
                     <table className="table w-full">

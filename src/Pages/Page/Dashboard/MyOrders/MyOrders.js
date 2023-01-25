@@ -27,8 +27,9 @@ const MyOrders = () => {
     // order having an image, title, price, and a pay button
 
     return (
-        <div className="overflow-x-auto w-full">
-            <table className="table w-full">
+        <div className="w-10/12 mx-auto my-20">
+            <h1 className='text-4xl font-bold text-center drop-shadow-md'>My Orders</h1>
+            <table className="table w-full mt-10">
                 <thead>
                     <tr>
                         <th>Image</th>
@@ -52,7 +53,7 @@ const MyOrders = () => {
                                     </div>
                                 </td>
                                 <td>
-                                    {order.booking_title}
+                                    {order.booking_title.slice(0, 50)}
                                     <br />
                                     <span className="badge badge-secondary p-3 text-white badge-sm">{order.booking_category_name}</span>
                                 </td>
@@ -62,7 +63,7 @@ const MyOrders = () => {
                                         order.paid ?
                                             <button className="btn btn-secondary cursor-not-allowed btn-sm" >Purchased</button>
                                             :
-                                            <Link to={`/dashboard/payment/${order._id}`}>
+                                            <Link to={`/payment/${order._id}`}>
                                                 <button className="btn btn-primary btn-sm">Pay Now</button>
                                             </Link>
                                     }

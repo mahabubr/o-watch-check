@@ -14,10 +14,10 @@ const Payment = () => {
     const { booking_title, booking_price } = myBookingPaymentInfo
 
     return (
-        <div>
+        <div className='my-40 w-9/12 mx-auto'>
             <div>
-                <h2 className='text-xl font-semibold text-pink-500'>Payment For <span className='text-2xl font-bold text-gray-700 border-b-2 border-gray-700 py-2'>{booking_title}</span></h2>
-                <p className='mt-4'>Please Pay <span className='text-xl font-bold text-green-600'>$ {booking_price}</span></p>
+                <h1 className='text-4xl font-bold text-center drop-shadow-md'>Payment For <span className='text-xl text-purple-500'>{booking_title}</span></h1>
+                <p className='mt-4 text-center font-bold'>Please Pay <span className='text-xl text-purple-500'>$ {booking_price}</span></p>
             </div>
             <div className='mt-10 w-10/12 md:w-8/12 lg:w-6/12 mx-auto'>
                 <Elements stripe={stripePromise}>

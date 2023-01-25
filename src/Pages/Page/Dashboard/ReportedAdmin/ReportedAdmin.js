@@ -65,9 +65,8 @@ const ReportedAdmin = () => {
     }
 
     return (
-        <div>
-            <h2 className='text-2xl font-bold text-pink-500 border-b-2 border-pink-500 p-2 cursor-pointer'>Reported Items</h2>
-
+        <div className='w-9/12 mx-auto my-20'>
+            <h1 className='text-4xl font-bold text-center drop-shadow-md'>Reported Items</h1>
             <div className='mt-10'>
                 <div className="overflow-x-auto">
                     <table className="table w-full">
@@ -86,7 +85,7 @@ const ReportedAdmin = () => {
                                     <tr key={product._id} className="hover">
                                         <th>{i + 1}</th>
                                         <td>
-                                            {product.wishlist_title}
+                                            {product.wishlist_title.slice(0, 50)}...
                                             <p className='text-sm font-bold text-blue-600'>Seller Name : {product.wishlist_seller_name}</p>
                                             <p className='text-sm font-bold text-orange-600'>Buyer Email : {product.wishlist_buyer_email}</p>
                                         </td>

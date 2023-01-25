@@ -1,5 +1,6 @@
 import React, { useContext, useState } from 'react';
 import toast from 'react-hot-toast';
+import { useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import { AuthContext } from '../../../../Contexts/AuthProvider/AuthProvider';
 
@@ -9,6 +10,7 @@ const AddProducts = () => {
 
     const { user } = useContext(AuthContext)
 
+    const navigate = useNavigate()
 
     const handleAddProduct = (event) => {
         event.preventDefault()
@@ -76,6 +78,7 @@ const AddProducts = () => {
                         'success'
                     )
                     form.reset()
+                    navigate('/my-products')
                 }
             })
             .catch(e => toast.error(e.method))
@@ -84,8 +87,8 @@ const AddProducts = () => {
     }
 
     return (
-        <div>
-            <h2 className='text-2xl font-bold text-pink-500 border-b-2 border-pink-500 p-2 cursor-pointer'>Add Your Products</h2>
+        <div className='w-9/12 mx-auto my-20'>
+            <h1 className='text-4xl font-bold text-center drop-shadow-md'>Add Your Products</h1>
             <div className='mt-10 w-11/12 mx-auto'>
 
                 <form onSubmit={handleAddProduct}>

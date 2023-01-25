@@ -93,9 +93,8 @@ const MyProducts = () => {
 
 
     return (
-        <div>
-            <h2 className='text-2xl font-bold text-pink-500 border-b-2 border-pink-500 p-2 cursor-pointer'>My Products</h2>
-
+        <div className='w-9/12 mx-auto my-20'>
+            <h1 className='text-4xl font-bold text-center drop-shadow-md'>My Products</h1>
             <div className='mt-10'>
                 <div className="overflow-x-auto">
                     <table className="table w-full">
@@ -113,7 +112,7 @@ const MyProducts = () => {
                                     <tr key={product._id} className="hover">
                                         <th>{i + 1}</th>
                                         <td>
-                                            {product.product_name}
+                                            {product.product_name.slice(0, 50)}
                                             <p className='text-green-500 font-bold'>Price : {product.product_resale_price}</p>
                                             <p className="badge badge-primary cursor-pointer"> Available</p>
                                         </td>
