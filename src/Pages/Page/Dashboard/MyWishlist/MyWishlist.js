@@ -39,7 +39,7 @@ const MyWishlist = () => {
                                     <tr key={product._id} className="hover">
                                         <th>{i + 1}</th>
                                         <td>
-                                            {product.wishlist_title.slice(0, 50)}
+                                            {product.wishlist_title}
                                             <p className='text-sm font-bold text-blue-600'>
                                                 Seller Name : {product.wishlist_seller_name}
                                             </p>

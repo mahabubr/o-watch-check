@@ -53,7 +53,7 @@ const MyOrders = () => {
                                     </div>
                                 </td>
                                 <td>
-                                    {order.booking_title.slice(0, 50)}
+                                    {order.booking_title}
                                     <br />
                                     <span className="badge badge-secondary p-3 text-white badge-sm">{order.booking_category_name}</span>
                                 </td>

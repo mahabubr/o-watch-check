@@ -112,7 +112,7 @@ const MyProducts = () => {
                                     <tr key={product._id} className="hover">
                                         <th>{i + 1}</th>
                                         <td>
-                                            {product.product_name.slice(0, 50)}
+                                            {product.product_name}
                                             <p className='text-green-500 font-bold'>Price : {product.product_resale_price}</p>
                                             <p className="badge badge-primary cursor-pointer"> Available</p>
                                         </td>
