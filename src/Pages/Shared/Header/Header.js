@@ -50,7 +50,7 @@ const Header = () => {
             <div className='bg-black p-3 hidden md:block'>
                 <div className='w-8/12 mx-auto flex justify-between items-center'>
                     <div>
-                        <p className='font-bold text-orange-400'>Welcome to Website</p>
+                        <p className='font-bold text-orange-400'>Welcome to Website. {userData && <span className='text-amber-200'>{userData?.role} Role</span>}</p>
                     </div>
                     <div className='flex justify-center items-center'>
                         <div className='flex justify-center items-center'>

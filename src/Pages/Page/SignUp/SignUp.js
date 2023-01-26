@@ -332,10 +332,11 @@ const SignUp = () => {
             <Helmet>
                 <title>O-Watch Check - Sign Up</title>
             </Helmet>
-            <div className="my-20 p-4 rounded-md sm:p-8 ">
-                <div className='block lg:flex justify-evenly items-center my-8'>
-                    <div className='lg:w-4/12 bg-violet-400 p-8 rounded-lg shadow-lg mb-6'>
-                        <Lottie animationData={lottieJson} loop={true} />
+            <div className="p-4 rounded-md">
+                <div className='block lg:flex justify-evenly items-center'>
+                    <div className='lg:w-4/12 hidden lg:block h-screen bg-sky-800 rounded-lg shadow-lg'>
+                        {/* <Lottie animationData={lottieJson} loop={true} /> */}
+                        <img src="https://i.ibb.co/JKk5xhs/signupbg.png" className='h-screen object-cover' alt="" />
                     </div>
                     <div className='lg:flex items-center mt-8'>
                         <form onSubmit={handleSignUp} noValidate="" action="" className="space-y-8 ng-untouched ng-pristine ng-valid">

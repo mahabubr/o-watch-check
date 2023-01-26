@@ -261,10 +261,10 @@ const Login = () => {
             <Helmet>
                 <title>O-Watch Check - Login</title>
             </Helmet>
-            <div className="my-20 p-4 rounded-md sm:p-8 ">
+            <div className="p-4 rounded-md">
                 <div className='lg:flex justify-evenly items-center'>
-                    <div className='lg:w-4/12 bg-violet-400 p-8 rounded-lg shadow-lg mb-6'>
-                        <Lottie animationData={lottieJson} loop={true} />
+                    <div className='lg:w-4/12 hidden lg:block bg-sky-800 rounded-lg shadow-lg'>
+                        <img src="https://i.ibb.co/JKk5xhs/signupbg.png" className='h-screen object-cover' alt="" />
                     </div>
                     <div className='lg:flex justify-between items-center mt-8'>
                         <form onSubmit={handleLogin} noValidate="" action="" className="space-y-8 ng-untouched ng-pristine ng-valid">
@@ -272,14 +272,14 @@ const Login = () => {
                             <div className="space-y-4">
                                 <div className="space-y-2">
                                     <label htmlFor="email" className="block text-sm">Email Address</label>
-                                    <input required type="email" name="email" id="email" placeholder="Email Address" className="w-full px-3 py-4 border rounded-md border-gray-700 text-gray-900 bg-gray-100 focus:border-violet-400" />
+                                    <input required type="email" name="email" id="email" placeholder="Email Address" className="w-full px-3 py-4 border rounded-md border-gray-700 text-gray-900 bg-gray-100 focus:border-violet-400" defaultValue='tony@ironman.com'/>
                                 </div>
                                 <div className="space-y-2">
                                     <div className="flex justify-between">
                                         <label htmlFor="password" className="text-sm">Password</label>
                                         <Link rel="noopener noreferrer" to='/forget' className="text-xs hover:underline text-gray-400">Forgot password?</Link>
                                     </div>
-                                    <input required type="password" name="password" id="password" placeholder="*****" className="w-full px-3 py-4 border rounded-md border-gray-700 text-gray-900 bg-gray-100 focus:border-violet-400" />
+                                    <input required type="password" name="password" id="password" placeholder="*****" className="w-full px-3 py-4 border rounded-md border-gray-700 text-gray-900 bg-gray-100 focus:border-violet-400" defaultValue='123456'/>
                                 </div>
                             </div>
                             <input className="inline-block w-full py-4 bg-indigo-600 text-white font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-indigo-700 hover:shadow-lg focus:bg-indigo-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-indigo-800 active:shadow-lg transition duration-150 ease-in-out cursor-pointer" type="submit" value="Login" />

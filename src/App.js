@@ -8,7 +8,7 @@ AOS.init();
 
 function App() {
   return (
-    <div>
+    <div className='overflow-x-hidden'>
       <Toaster />
       <RouterProvider router={router} />
     </div>
