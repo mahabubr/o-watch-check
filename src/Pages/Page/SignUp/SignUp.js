@@ -340,8 +340,7 @@ const SignUp = () => {
                     </div>
                     <div className='lg:flex items-center mt-8'>
                         <form onSubmit={handleSignUp} noValidate="" action="" className="space-y-8 ng-untouched ng-pristine ng-valid">
-                            <h2 className="mb-3 text-4xl font-semibold text-center">Sign Up To Enter</h2>
-                            <div className="space-y-4">
+                            <h1 className='text-4xl font-bold text-center drop-shadow-md'>Please Register</h1>                            <div className="space-y-4">
                                 <div className="space-y-2">
                                     <label htmlFor="name" className="block text-sm">Full Name</label>
                                     <input required type="text" name="name" id="name" placeholder="Full Name" className="w-full px-3 py-4 border rounded-md border-gray-700 text-gray-900 bg-gray-100 focus:border-violet-400" />
