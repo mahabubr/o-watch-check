@@ -131,6 +131,8 @@ const SignUp = () => {
         const password = form.password.value
         const image = form.image.files[0]
 
+        console.log(image);
+
         // Sent Image To Image BB
         const formData = new FormData()
         formData.append('image', image)

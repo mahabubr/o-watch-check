@@ -6,7 +6,7 @@ import { IoPeopleCircleOutline } from 'react-icons/io5';
 import { FaSearch, FaUserAlt, FaBloggerB } from 'react-icons/fa';
 import { CgAdd } from 'react-icons/cg';
 import { FiWatch } from 'react-icons/fi';
-import { MdDashboard, MdProductionQuantityLimits, MdReport } from 'react-icons/md';
+import { MdProductionQuantityLimits, MdReport } from 'react-icons/md';
 import { Link, NavLink } from 'react-router-dom';
 // import ShoppingCart from '../../../Components/ShoppingCart/ShoppingCart';
 import { useContext } from 'react';
@@ -20,7 +20,7 @@ const Header = () => {
 
     const { user, logOut } = useContext(AuthContext)
 
-    const { data: userData, isLoading } = useQuery({
+    const { data: userData } = useQuery({
         queryKey: ['user', user?.email],
         queryFn: () => fetch(`https://owatch-check-server.vercel.app/user/?email=${user?.email}`)
             .then(res => res.json())

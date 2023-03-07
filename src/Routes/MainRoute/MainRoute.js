@@ -1,5 +1,4 @@
 import { createBrowserRouter } from "react-router-dom";
-import DashboardLayout from "../../Layout/DashboardLayout/DashboardLayout";
 import MainLayout from "../../Layout/MainLayout/MainLayout";
 import Blog from "../../Pages/Other/Blog/Blog";
 import MyProfile from "../../Pages/Other/MyProfile/MyProfile";
@@ -8,7 +7,6 @@ import AllProducts from "../../Pages/Page/AllProducts/AllProducts";
 import AddProducts from "../../Pages/Page/Dashboard/AddProducts/AddProducts";
 import AllBuyers from "../../Pages/Page/Dashboard/AllBuyers/AllBuyers";
 import AllSellers from "../../Pages/Page/Dashboard/AllSellers/AllSellers";
-import Dashboard from "../../Pages/Page/Dashboard/Dashboard";
 import MyOrders from "../../Pages/Page/Dashboard/MyOrders/MyOrders";
 import Payment from "../../Pages/Page/Dashboard/MyOrders/Payment/Payment";
 import MyProducts from "../../Pages/Page/Dashboard/MyProducts/MyProducts";
