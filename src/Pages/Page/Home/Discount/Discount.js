@@ -92,7 +92,7 @@ const Discount = () => {
                 </div>
             </div>
 
-            <div className='mt-8 grid grid-cols-1 lg:grid-cols-2 gap-4'>
+            <div className='mt-8 grid md:grid-cols-2 gap-4'>
                 <div className='lg:flex border  gap-2 items-center'>
                     <div className='lg:flex gap-6 p-2 border-b-2 lg:border-b-0 lg:border-r-2 border-gray-700 border-dashed justify-center items-center lg:w-9/12'>
                         <div className='lg:w-6/12'>

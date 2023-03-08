@@ -23,6 +23,7 @@
     "react-hot-toast": "^2.4.0",
     "react-icons": "^4.6.0",
     "react-leaflet": "^4.2.0",
+    "react-moving-text": "^0.0.7",
     "react-photo-album": "^2.0.0",
     "react-router-dom": "^6.4.3",
     "react-scripts": "5.0.1",

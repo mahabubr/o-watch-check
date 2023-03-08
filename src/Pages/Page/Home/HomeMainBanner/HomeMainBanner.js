@@ -1,11 +1,12 @@
 import React from 'react';
 import HomeMainFirstBanner from './HomeMainFirstBanner/HomeMainFirstBanner';
 import HomeSecondBanner from './HomeSecondBanner/HomeSecondBanner';
+// import HomeTextSlider from './HomeTextSlider/HomeTextSlider';
 import HomeThirdBanner from './HomeThirdBanner/HomeThirdBanner';
 
 const HomeMainBanner = () => {
     return (
-        <div className='p-8 grid grid-cols-1 lg:grid-cols-3'>
+        <div className='p-8 grid grid-cols-1 lg:grid-cols-3 lg:place-items-center'>
             <div className='lg:col-span-2' data-aos="fade-right"
                 data-aos-offset="300"
                 data-aos-easing="ease-in-sine">
@@ -16,6 +17,7 @@ const HomeMainBanner = () => {
                 data-aos-easing="ease-in-sine">
                 <HomeSecondBanner></HomeSecondBanner>
                 <HomeThirdBanner></HomeThirdBanner>
+                {/* <HomeTextSlider></HomeTextSlider> */}
             </div>
         </div>
     );
