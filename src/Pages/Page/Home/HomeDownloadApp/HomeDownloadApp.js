@@ -1,13 +1,16 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import img from '../../../../Assets/phone.png'
 
 const HomeDownloadApp = () => {
     return (
-        <section className="py-6 bg-gray-800 text-gray-50 my-20 grid grid-cols-2 place-items-center">
+        <section className="p-8 bg-gray-800 text-gray-50 my-20 grid lg:grid-cols-2 place-items-center">
             <div className="p-4 text-center md:p-10">
-                <div className="flex flex-col justify-center lg:text-left">
+                <div className="flex flex-col justify-center lg:text-left" data-aos="fade-right"
+                    data-aos-offset="300"
+                    data-aos-easing="ease-in-sine">
                     <p className="mb-1 text-sm font-medium tracking-widest uppercase text-pink-400">Connect Us On</p>
-                    <h1 className="py-2 text-3xl font-medium leading-tight title-font">Google Play Store or App Store</h1>
+                    <h1 className="py-2 text-3xl lg:text-5xl font-medium leading-tight title-font">Google Play Store or App Store</h1>
                     <div className='mt-4 space-x-3'>
                         <Link href="https://play.google.com" target='_blank'>
                             <button className="inline-flex items-center px-6 py-3 rounded-lg bg-pink-400 text-gray-900">
@@ -34,8 +37,8 @@ const HomeDownloadApp = () => {
                     </div>
                 </div>
             </div>
-            <div className=''>
-                1
+            <div className='w-10/12' data-aos="flip-right">
+                <img className='w-full' src={img} alt="" />
             </div>
         </section>
     );

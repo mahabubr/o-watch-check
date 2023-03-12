@@ -62,7 +62,7 @@ const Discount = () => {
                 <p className='text-center my-4 mb-8'>Don't miss this opportunity at a special discount just for this week.</p>
             </div>
 
-            <div className='lg:flex border gap-8 items-center'>
+            <div data-aos="flip-down" className='lg:flex border gap-8 items-center'>
                 <div className='lg:flex gap-6 p-6 border-b-2 lg:border-b-0 lg:border-r-2 border-gray-700 border-dashed justify-center items-center lg:w-9/12'>
                     <div className='lg:w-6/12'>
                         <img className='lg:w-full' src={imgBanner} alt="" />
@@ -93,7 +93,7 @@ const Discount = () => {
             </div>
 
             <div className='mt-8 grid md:grid-cols-2 gap-4'>
-                <div className='lg:flex border  gap-2 items-center'>
+                <div data-aos="zoom-in-right" className='lg:flex border  gap-2 items-center'>
                     <div className='lg:flex gap-6 p-2 border-b-2 lg:border-b-0 lg:border-r-2 border-gray-700 border-dashed justify-center items-center lg:w-9/12'>
                         <div className='lg:w-6/12'>
                             <img className='lg:w-full' src={imgBanner1} alt="" />
@@ -122,7 +122,7 @@ const Discount = () => {
                         </div>
                     </div>
                 </div>
-                <div className='lg:flex border  gap-2 items-center'>
+                <div data-aos="zoom-in-left" className='lg:flex border  gap-2 items-center'>
                     <div className='lg:flex gap-6 p-2 border-b-2 lg:border-b-0 lg:border-r-2 border-gray-700 border-dashed justify-center items-center lg:w-9/12'>
                         <div className='lg:w-6/12'>
                             <img className='lg:w-full' src={imgBanner2} alt="" />
@@ -151,7 +151,7 @@ const Discount = () => {
                         </div>
                     </div>
                 </div>
-                <div className='lg:flex border  gap-2 items-center'>
+                <div data-aos="zoom-in-right" className='lg:flex border  gap-2 items-center'>
                     <div className='lg:flex gap-6 p-2 border-b-2 lg:border-b-0 lg:border-r-2 border-gray-700 border-dashed justify-center items-center lg:w-9/12'>
                         <div className='lg:w-6/12'>
                             <img className='lg:w-full' src={imgBanner3} alt="" />
@@ -180,7 +180,7 @@ const Discount = () => {
                         </div>
                     </div>
                 </div>
-                <div className='lg:flex border  gap-2 items-center'>
+                <div data-aos="zoom-in-left" className='lg:flex border  gap-2 items-center'>
                     <div className='lg:flex gap-6 p-2 border-b-2 lg:border-b-0 lg:border-r-2 border-gray-700 border-dashed justify-center items-center lg:w-9/12'>
                         <div className='lg:w-6/12'>
                             <img className='lg:w-full' src={imgBanner4} alt="" />
